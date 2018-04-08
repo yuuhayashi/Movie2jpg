@@ -1,0 +1,32 @@
+*.class
+*.zip
+bin/**
+classes/
+sample/
+dest/**
+*.jar
+database/
+
+
+# ============ #
+# Eclipse      #
+# ============ #
+.externalToolBuilders/
+.metadata
+.settings
+.project
+.classpath
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+**/nbproject/private/
+/build/**
+/dist/**
