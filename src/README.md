@@ -128,6 +128,28 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
 2. 起動したJOSMにGPXファイルをドラッグ＆ドロップする(複数のGPXがあるときは全部まとめてドロップする)  
   ![DragAndDrop](GpxDrop.png)
 
-3. 
+3. 背景画像を選択する（お好みで）  
+  ![MenuImage](MenuImageBing.png)
+
+4. ~img~フォルダの画像を画像ビューワなどで開き、サムネイルなどで画像が撮影された位置が特定できるファイルを見つける
+ * トンネルの入り際
+ * 橋の開始／終点
+ * 交差点に侵入
+  などが位置を特定しやすい。
+  ![ImagePosition](ImagePosition.png)
+
+  この例では、交差点の侵入（横断歩道のところ）
+
+5. GPXの位置を特定します。GPXのままではわかりづらいのでGPXのところを *右クリック* して「データレイヤーへ変換」を選択  
+  ![GPX2Data](GPX2Data.png)
+
+6. GPXのノードが選択できるようになったので、イメージファイルの位置のノードを*クリック*して、メニュー「*表示*」-「*詳細な情報*」を選択する  
+  ![ShowInfo](ShowInfo.png)
+
+7. 表示された「詳細なオブジェクト情報」の「*編集日時*」を記録する  
+  ![ShowInfoData](ShowInfoData.png)
+
+8. 同様にしてもうひとつの位置がわかる画像を探して、そのGPX位置の「*編集日時*」を記録する
+
 
 
