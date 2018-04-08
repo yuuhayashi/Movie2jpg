@@ -125,7 +125,8 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
 
 1. [JOSM](https://josm.openstreetmap.de/)を起動する
 
-2. 起動したJOSMにGPXファイルをドラッグ＆ドロップする(複数のGPXがあるときは全部まとめてドロップする)
+2. 起動したJOSMにGPXファイルをドラッグ＆ドロップする(複数のGPXがあるときは全部まとめてドロップする)  
+  ![DragAndDrop](GpxDrop.png)
 
 3. 
 
