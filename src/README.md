@@ -150,7 +150,8 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
   ![ShowInfoData](ShowInfoData.png)
 
 8. 同様にしてもうひとつの位置がわかる画像を探して、そのGPX位置の「*編集日時*」を記録する
-`~~
+
+```
 ノード: -53809
   データセット: 35129fd7
   編集日時: 2018-04-07T05:19:36Z
@@ -164,6 +165,94 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
     ウェイ: -54607
 
 イメージファイル: 01725.jpg
-~~~
+```
+
+9. JPEGファイルの更新日付を書き換える
+
+```
+$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07_13:54:47 01725.jpg 2018-04-07_14:19:36
+```
+
+----
+
+# GPSログとJPEGの更新日付を付きあわせてJPEGのEXiFに位置情報を書き込む
+
+### AdjustTime2を使う
+
+----
+
+## Docker mapillary_tools
+
+### Dockerfile
+
+```
+FROM ubuntu:16.04
+
+# SETUP
+RUN apt-get -qq update
+RUN apt-get -y upgrade
+RUN \
+    apt-get -qq update && \
+    apt-get -yqq install \
+        git \
+        python-pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN \
+    pip install --upgrade pip
+
+RUN mkdir /mnt/osm
+
+COPY . /source/mapillary_tools
+
+WORKDIR /source/mapillary_tools
+
+RUN pip install -r python/requirements.txt
+
+RUN apt-get -qq update
+RUN apt-get -yqq install openjdk-8-jre
+```
+
+### Docker build
+
+~mapillary.sh~  
+```
+export MAPILLARY_EMAIL="hayashi.yuu@gmail.com"
+export MAPILLARY_PASSWORD="yuu8844"
+export MAPILLARY_USERNAME="hayashi"
+export MAPILLARY_PERMISSION_HASH="eyJleHBpcmF0aW9uIjoiMjAyMC0wMS0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJtYXBpbGxhcnkudXBsb2Fkcy5tYW51YWwuaW1hZ2VzIn0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCJoYXlhc2hpLyJdLHsiYWNsIjoicHJpdmF0ZSJ9LFsic3RhcnRzLXdpdGgiLCIkQ29udGVudC1UeXBlIiwiIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCw1MDAwMDAwMF1dfQ=="
+export MAPILLARY_SIGNATURE_HASH="SwRGN9K/FN+FpXPSO09LvuhBAGI="
+
+# python /source/mapillary_tools/python/geotag_from_gpx.py /mnt/osm/img/m/ /mnt/osm/img/2016-04-09_150103.gpx
+
+python /source/mapillary_tools/python/remove_duplicates.py /mnt/osm/img/m/ /mnt/osm/img/duplicate/
+
+python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/osm/img/m/
+```
+
+```
+cd /home/yuu/workspace/mapillary_tools
+docker build -t haya4/mapillary .
+```
+
+### Docker run
+
+```
+docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/mapillary /bin/bash
+
+-v /home/yuu/Desktop/OSM:/mnt/osm
+    PCのフォルダ(/home/yuu/Desktop/OSM)をコンテナのフォルダ(/mnt/osm)にマウントする
+
+# cd /root
+# sh ./mapillary.sh
+#     :
+#
+```
+
+
+
+
+
 
 
