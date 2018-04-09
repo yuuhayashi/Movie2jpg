@@ -181,6 +181,27 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
 
 ----
 
+# Mapillary-tools を使って*Mapillary*に大量アップ
+
+```
+/home/yuu/Desktop
+┃
+┗━ ./OSM
+　　　┃
+　　　┗━ ./OSM/img
+　　　　　　┣━ ./OSM/img/m
+　　　　　　┃　　┣━ 00001.jpg
+　　　　　　┃　　┣━ 00002.jpg
+　　　　　　┃　　┣━     :
+　　　　　　┃　　┗━ 01861.jpg
+　　　　　　┃
+　　　　　　┗━ ./OSM/img/duplicate
+```
+ * ~/home/yuu/Desktop/OSM/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く
+
+ * ~/home/yuu/Desktop/OSM/img/duplicate~フォルダに重複ファイルが置かれる
+
+
 ## Docker mapillary_tools
 
 ### Dockerfile
@@ -239,6 +260,7 @@ docker build -t haya4/mapillary .
 ### Docker run
 
 ```
+cd /home/yuu/Desktop/workspace/mapillary-tools
 docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/mapillary /bin/bash
 
 -v /home/yuu/Desktop/OSM:/mnt/osm
