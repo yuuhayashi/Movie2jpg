@@ -31,29 +31,12 @@ Mapillaryにアップするなら１秒間隔にしたいので **タイムラ�
 
 ### docker build
 
-`Dockerfile`
-```
-FROM ubuntu:16.04
+[Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
 
-# SETUP
-RUN apt-get -qq update && \
-    apt-get -y upgrade
-RUN \
-    apt-get -qq update && \
-    apt-get -yqq install ffmpeg
-RUN \
-    apt-get -qq update && \
-    apt-get -yqq install openjdk-8-jre
-
-RUN mkdir /mnt/osm
-
-
-```
-
-```
+  ```
 $ cd /home/yuu/workspace/Movie2jpg
 $ docker build -t haya4/movie2jpg .
-```
+  ```
 
 ### 動画ファイルのセット
 
@@ -271,10 +254,3 @@ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/mapillary /bin/bash
 #     :
 #
 ```
-
-
-
-
-
-
-
