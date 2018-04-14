@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM haya4/mapillary-tools
 
 # SETUP
 RUN apt-get -qq update && \
@@ -8,9 +8,7 @@ RUN \
     apt-get -yqq install ffmpeg
 RUN \
     apt-get -qq update && \
-    apt-get -yqq install openjdk-8-jre
-
-RUN mkdir /mnt/osm
+    apt-get -yqq install openjdk-8-jdk
 
 COPY ./dist/Movie2jpg.jar /root
 COPY ./lib/commons-imaging-1.0-20170205.201009-115.jar /root
