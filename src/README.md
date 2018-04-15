@@ -244,7 +244,7 @@ docker build -t haya4/movie2jpg .
 
 ```
 cd /home/yuu/Desktop/workspace/Movie2jpg
-docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg /bin/bash
+docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg /bin/bash /root/mapillary.sh
 
 -v /home/yuu/Desktop/OSM:/mnt/osm
     PCのフォルダ(/home/yuu/Desktop/OSM)をコンテナのフォルダ(/mnt/osm)にマウントする
