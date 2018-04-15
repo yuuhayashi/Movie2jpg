@@ -2,11 +2,13 @@ package osm.jp.gpx;
 
 import java.io.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.TimeZone;
 import org.apache.commons.imaging.ImageReadException;
 
 /**
@@ -90,8 +92,15 @@ public class Restamp extends Thread {
             return;
         }
         
-        DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd'_'HH:mm:ss");
-    	Date baseTime1 = df1.parse(argv[2]);
+        String timeStr = argv[2];
+        Date baseTime1;
+        try {
+            baseTime1 = toUTCDate(timeStr);
+        }
+        catch (ParseException e) {
+            DateFormat df1 = new SimpleDateFormat(TIME_FORMAT_STRING_LOCAL);
+            baseTime1 = df1.parse(argv[2]);
+        }
 
         File baseFile2 = new File(imgDir, argv[3]);
         if (!baseFile2.exists()) {
@@ -103,8 +112,15 @@ public class Restamp extends Thread {
             return;
         }
         
-        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd'_'HH:mm:ss");
-    	Date baseTime2 = df2.parse(argv[4]);
+        timeStr = argv[4];
+        Date baseTime2;
+        try {
+            baseTime2 = toUTCDate(timeStr);
+        }
+        catch (ParseException e) {
+            DateFormat df2 = new SimpleDateFormat(TIME_FORMAT_STRING_LOCAL);
+            baseTime2 = df2.parse(argv[4]);
+        }
 
         Restamp obj = new Restamp();
         obj.setUp(imgDir, baseFile1, baseTime1, baseFile2, baseTime2);
@@ -117,6 +133,14 @@ public class Restamp extends Thread {
     public int bCount2 = 0;
     public long span = 0;
     public ArrayList<File> jpgFiles = new ArrayList<>();
+    public static final String TIME_FORMAT_STRING_LOCAL = "yyyy-MM-dd'_'HH:mm:ss";
+    public static final String TIME_FORMAT_STRING = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+    
+    public static Date toUTCDate(String timeStr) throws ParseException {
+    	DateFormat dfUTC = new SimpleDateFormat(TIME_FORMAT_STRING);
+    	dfUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+    	return dfUTC.parse(timeStr);
+    }
 	
     @SuppressWarnings("Convert2Lambda")
     public void setUp(File imgDir, File baseFile1, Date baseTime1,  File baseFile2, Date baseTime2) throws Exception {

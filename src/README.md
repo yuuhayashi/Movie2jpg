@@ -237,14 +237,14 @@ python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/osm/img/
 
 ```
 cd /home/yuu/workspace/mapillary_tools
-docker build -t haya4/mapillary .
+docker build -t haya4/movie2jpg .
 ```
 
 ### Docker run
 
 ```
-cd /home/yuu/Desktop/workspace/mapillary-tools
-docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/mapillary /bin/bash
+cd /home/yuu/Desktop/workspace/Movie2jpg
+docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg /bin/bash
 
 -v /home/yuu/Desktop/OSM:/mnt/osm
     PCのフォルダ(/home/yuu/Desktop/OSM)をコンテナのフォルダ(/mnt/osm)にマウントする
