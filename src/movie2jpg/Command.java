@@ -3,45 +3,18 @@ import java.io.*;
 
 public class Command
 {
+    public static boolean debug = false;
     private java.lang.String cmd;    /** プロパティ cmd(実行するｺﾏﾝﾄﾞﾗｲﾝ)。 */
     private java.io.File workDir;   /** プロパティ workDir の値 */
     
     /** 
-    *	サンプル
-    * @param args	パラメータ
-    */
-    static public void main(String[] args) {
-        if (args.length < 1) {
-            System.out.println("exp: java movie2jpg.Command [commandLine]");
-            return;
-        }
-        String commandLine = "";
-        for (int i=0; i < args.length; i++) {
-            if (i != 0) {
-                commandLine += " ";
-            }
-            commandLine += args[i];
-        }
-
-        // エラー結果と実行結果を別々に取り出す
-        System.out.println(commandLine);
-        Command command = new Command();
-        try {
-            command.setCmd(commandLine);
-            command.setWorkDir(null);
-            command.execCommand();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /** 
      * ｺﾏﾝﾄﾞを実行しその出力ｽﾄﾘｰﾑを取得
      * @exception IOException I/Oｴﾗｰが発生した場合
      */
-    public void execCommand() throws IOException {
-        System.out.println("[Command start] " + cmd);
+    public void execCommand() throws Exception {
+        if (debug){
+            System.out.println("[Command s] " + cmd);
+        }
 
         if ((getCmd() == null) || getCmd().equals("")) {
             return;
@@ -55,12 +28,11 @@ public class Command
         else {
             process = Runtime.getRuntime().exec(getCmd(), null, getWorkDir());
         }
-        
-        try { 
-            process.waitFor();  // ｺﾏﾝﾄﾞ終了まで待機
-        } catch (InterruptedException e) {}
 
-        System.out.println("[Command end] "+ getCmd() +"\n");
+        new StreamThread(process.getInputStream(), "/mnt/osm/stdout.txt").start();
+        new StreamThread(process.getErrorStream(), "/mnt/osm/stderr.txt").start();
+        
+        process.waitFor();  // ｺﾏﾝﾄﾞ終了まで待機
     }
     
     /** プロパティ cmd の取得メソッド。
@@ -90,5 +62,75 @@ public class Command
     public void setWorkDir(java.io.File workDir) {
         this.workDir = workDir;
     }
+    
+    class StreamThread extends Thread {
+        private static final int BUF_SIZE = 4096;
+        private InputStream in;
+        private BufferedOutputStream out;
 
+        public StreamThread(InputStream in, String outputFilename) throws IOException {
+            this.in  = in;
+            this.out = new BufferedOutputStream(new FileOutputStream(outputFilename));
+        }
+
+        @Override
+        public void run(){
+            byte[] buf = new byte[BUF_SIZE];
+            int size = -1;
+            try{
+                while((size = in.read(buf, 0, BUF_SIZE)) != -1){
+                    out.write(buf, 0, size);
+                }
+            }catch(IOException ex){
+                ex.printStackTrace();
+            }finally{
+                try{in.close();} catch(IOException ex){}
+                try{out.close();}catch(IOException ex){}
+            }
+        }
+    }
+    
+    /** 
+    *	サンプル
+    * @param args	パラメータ
+    */
+    static public void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("exp: java tool.job.Command [commandLine]");
+            return;
+        }
+        String commandLine = "";
+        for (int i=0; i < args.length; i++) {
+            if (i != 0) {
+                commandLine += " ";
+            }
+            commandLine += args[i];
+        }
+
+        // エラー結果と実行結果を別々に取り出す
+        System.out.println(commandLine);
+        Command command = new Command();
+        String stdout = "";
+        String errout = "";
+        try {
+            command.setCmd(commandLine);
+            command.setWorkDir(null);
+            command.execCommand();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // エラー結果と実行結果をいっしょに取り出す
+        System.out.println(commandLine);
+        command = new Command();
+        try {
+            command.setCmd(commandLine);
+            command.setWorkDir(null);
+            command.execCommand();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -3,7 +3,6 @@ package movie2jpg;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
-import java.io.IOException;
 
 /**
  *
@@ -15,7 +14,7 @@ public class Movie2jpg {
      * @param args the command line arguments
      * @throws java.io.FileNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("exp: java movie2jpg.Movie2jpg");
         (new Movie2jpg()).proc();
     }
@@ -37,7 +36,7 @@ public class Movie2jpg {
      * 
      * @throws FileNotFoundException 
      */
-    public void proc() throws FileNotFoundException, IOException {
+    public void proc() throws Exception {
         if (!movieDir.exists()) {
             throw new FileNotFoundException(movieDir.getAbsolutePath());
         }
@@ -57,7 +56,7 @@ public class Movie2jpg {
      * @param mp4File 
      * @throws java.io.IOException 
      */
-    public void ffmpeg(File mp4File) throws IOException {
+    public void ffmpeg(File mp4File) throws Exception {
         String name = mp4File.getName();
         name = name.substring(0, name.length()-4);
         if (!imgDir.exists()) {

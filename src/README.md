@@ -27,7 +27,7 @@ Mapillaryにアップするなら１秒間隔にしたいので **タイムラ�
 リアルタイム動画ではコマ落ちの可能性が高くなるような気がします（個人の感想です）。JPEGに撮影時刻を割り当てる際に時間のズレが生じる可能性が高くなります。
 
 
-## Docker 'haya4/Movie2jpg'
+## Docker 'haya4/movie2jpg'
 
 ### docker build
 
