@@ -9,9 +9,10 @@ public class Command
     
     /** 
      * ｺﾏﾝﾄﾞを実行しその出力ｽﾄﾘｰﾑを取得
+     * @param workDir
      * @exception IOException I/Oｴﾗｰが発生した場合
      */
-    public void execCommand() throws Exception {
+    public void execCommand(File workDir) throws Exception {
         if (debug){
             System.out.println("[Command s] " + cmd);
         }
@@ -29,8 +30,8 @@ public class Command
             process = Runtime.getRuntime().exec(getCmd(), null, getWorkDir());
         }
 
-        new StreamThread(process.getInputStream(), "/mnt/osm/stdout.txt").start();
-        new StreamThread(process.getErrorStream(), "/mnt/osm/stderr.txt").start();
+        new StreamThread(process.getInputStream(), new File(workDir, "stdout.txt")).start();
+        new StreamThread(process.getErrorStream(), new File(workDir, "stderr.txt")).start();
         
         process.waitFor();  // ｺﾏﾝﾄﾞ終了まで待機
     }
@@ -73,6 +74,11 @@ public class Command
             this.out = new BufferedOutputStream(new FileOutputStream(outputFilename));
         }
 
+        public StreamThread(InputStream in, File outputFile) throws IOException {
+            this.in  = in;
+            this.out = new BufferedOutputStream(new FileOutputStream(outputFile));
+        }
+
         @Override
         public void run(){
             byte[] buf = new byte[BUF_SIZE];
@@ -110,24 +116,10 @@ public class Command
         // エラー結果と実行結果を別々に取り出す
         System.out.println(commandLine);
         Command command = new Command();
-        String stdout = "";
-        String errout = "";
         try {
             command.setCmd(commandLine);
             command.setWorkDir(null);
-            command.execCommand();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // エラー結果と実行結果をいっしょに取り出す
-        System.out.println(commandLine);
-        command = new Command();
-        try {
-            command.setCmd(commandLine);
-            command.setWorkDir(null);
-            command.execCommand();
+            command.execCommand(command.getWorkDir());
         }
         catch (Exception e) {
             e.printStackTrace();

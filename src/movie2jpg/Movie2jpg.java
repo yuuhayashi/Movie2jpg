@@ -74,7 +74,7 @@ public class Movie2jpg {
         Command command = new Command();
         command.setCmd(commandLine);
         command.setWorkDir(workDir);
-        command.execCommand();
+        command.execCommand(workDir);
     }
     
     /**
