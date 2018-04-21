@@ -51,12 +51,17 @@ $ docker build -t haya4/movie2jpg .
 　　　┃
 　　　┗━ ./OSM/Movie
 　　　　　　┃
+　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 
 ```
 
  * フォルダ `/home/yuu/Desktop/OSM/Movie` に MP4ファイルを配置する。
+
+ * フォルダ `/home/yuu/Desktop/OSM/Movie` に ~Movie2jpg.ini~ を配置する。
+
+[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini)
 
 
 
