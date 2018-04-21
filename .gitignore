@@ -6,7 +6,7 @@ sample/
 dest/**
 *.jar
 database/
-
+glassfish5/
 
 # ============ #
 # Eclipse      #
