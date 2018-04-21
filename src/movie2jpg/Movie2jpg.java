@@ -3,6 +3,7 @@ package movie2jpg;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
+import java.io.IOException;
 
 /**
  *
@@ -22,14 +23,18 @@ public class Movie2jpg {
     public File workDir = null;
     public File movieDir;
     public File imgDir;
+    public AppParams params;
     
     /**
      * 
+     * @throws java.io.IOException
      */
-    public Movie2jpg() {
+    public Movie2jpg() throws IOException {
         workDir = new File(".");
         movieDir = new File(workDir, "Movie");      // './Movie'ディレクトリ
         imgDir = new File(workDir, "img");          // './img'ディレクトリ
+        this.params = new AppParams();
+        System.out.println(" - param： "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE) );
     }
     
     /**
@@ -67,8 +72,9 @@ public class Movie2jpg {
             outDir.mkdir();
         }
         
+        String rate = this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE);
         String dest = "img/"+ name +"/%05d.jpg";
-        String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -r 15 %s", mp4File.getAbsolutePath(), dest);
+        String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -r %s %s", mp4File.getAbsolutePath(), rate, dest);
         System.out.println(commandLine);
         
         Command command = new Command();
