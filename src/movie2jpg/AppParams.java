@@ -13,10 +13,10 @@ import java.util.Properties;
  * @author yuu
  */
 public class AppParams extends Properties {
-    static final String FILE_PATH = "Movie2jpg.ini";
+    static final String FILE_PATH = "./Movie/Movie2jpg.ini";
     
     // 出力IMG: EXIFを変換する
-    public static String FFMPEG_OUTPUT_FRAME_RATE = "FFMPEG.OUTPUT_FRAME_RATE";
+    public static String FFMPEG_OUTPUT_FRAME_RATE = "FFMPEG_OUTPUT_FRAME_RATE";
     
     File file;
 
@@ -42,7 +42,7 @@ public class AppParams extends Properties {
         String valueStr = this.getProperty(FFMPEG_OUTPUT_FRAME_RATE);
         if (valueStr == null) {
             update = true;
-            valueStr = String.valueOf(true);
+            valueStr = "30";
         }
         this.setProperty(FFMPEG_OUTPUT_FRAME_RATE, String.valueOf(valueStr));
         

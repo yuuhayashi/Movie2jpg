@@ -34,7 +34,7 @@ public class Movie2jpg {
         movieDir = new File(workDir, "Movie");      // './Movie'ディレクトリ
         imgDir = new File(workDir, "img");          // './img'ディレクトリ
         this.params = new AppParams();
-        System.out.println(" - param： "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE) );
+        System.out.println(" - param: "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE) );
     }
     
     /**
@@ -57,8 +57,8 @@ public class Movie2jpg {
     }
     
     /**
-     * 
-     * @param mp4File 
+     * コマンド：　~ffmpeg -ss 0 -i $(mp4 file) -f image2 -r $(FFMPEG_OUTPUT_FRAME_RATE) $(output file)~
+     * @param mp4File
      * @throws java.io.IOException 
      */
     public void ffmpeg(File mp4File) throws Exception {
