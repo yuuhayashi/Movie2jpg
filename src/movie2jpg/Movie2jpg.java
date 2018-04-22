@@ -61,7 +61,7 @@ public class Movie2jpg {
     }
     
     /**
-     * コマンド：　~ffmpeg -ss 0 -i $(mp4 file) -f image2 -r $(FFMPEG_OUTPUT_FRAME_RATE) $(output file)~
+     * コマンド：　~ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)~
      * @param mp4File
      * @throws java.io.IOException 
      */
@@ -78,7 +78,7 @@ public class Movie2jpg {
         
         String rate = this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE);
         String dest = "img/"+ name +"/%05d.jpg";
-        String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -r %s %s", mp4File.getAbsolutePath(), rate, dest);
+        String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -vf fps=%s %s", mp4File.getAbsolutePath(), rate, dest);
         System.out.println("# " + commandLine);
         
         Command command = new Command();
