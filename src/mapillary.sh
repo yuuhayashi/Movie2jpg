@@ -10,3 +10,5 @@ export MAPILLARY_SIGNATURE_HASH="SwRGN9K/FN+FpXPSO09LvuhBAGI="
 python /source/mapillary_tools/python/remove_duplicates.py /mnt/osm/img/m/ /mnt/osm/img/duplicate/
 
 python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/osm/img/m/
+
+chmod 777 -R /mnt/osm
