@@ -61,7 +61,14 @@ $ docker build -t haya4/movie2jpg .
 
  * フォルダ `/home/yuu/Desktop/OSM/Movie` に ~Movie2jpg.ini~ を配置する。
 
-[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini)
+[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例
+```
+[FFMPEG]
+FFMPEG_OUTPUT_FRAME_RATE=1
+```
+  - FFMPEG_OUTPUT_FRAME_RATE 1.0秒間隔で撮影した場合は「1」とすると1.0間隔の静止画が取り出せる
+  - FFMPEG_OUTPUT_FRAME_RATE 0.5秒間隔で撮影した場合は「15」とする(30fps x 0.5sec)と1.0間隔の静止画が取り出せる
+
 
 
 
@@ -71,7 +78,7 @@ $ docker build -t haya4/movie2jpg .
 ```
 $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg ffmpeg -ss 0  -i Movie/20180401_071732A.mp4 -f image2 -r 15 img/%05d.jpg
 
-$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg
+$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
 ```
 

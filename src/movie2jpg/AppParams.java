@@ -13,16 +13,14 @@ import java.util.Properties;
  * @author yuu
  */
 public class AppParams extends Properties {
-    static final String FILE_PATH = "./Movie/Movie2jpg.ini";
-    
     // 出力IMG: EXIFを変換する
     public static String FFMPEG_OUTPUT_FRAME_RATE = "FFMPEG_OUTPUT_FRAME_RATE";
     
     File file;
 
-    public AppParams() throws FileNotFoundException, IOException {
+    public AppParams(File file) throws FileNotFoundException, IOException {
         super();
-        this.file = new File(FILE_PATH);
+        this.file = file;
         syncFile();
     }
     

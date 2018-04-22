@@ -17,7 +17,7 @@ public class Movie2jpg {
      */
     public static void main(String[] args) throws Exception {
         System.out.println("exp: java movie2jpg.Movie2jpg");
-        (new Movie2jpg()).proc();
+        (new Movie2jpg(new File(args[0]))).proc();
     }
     
     public File workDir = null;
@@ -27,14 +27,15 @@ public class Movie2jpg {
     
     /**
      * 
+     * @param iniFile   "/mnt/osm/Movie/Movie2jpg.ini"
      * @throws java.io.IOException
      */
-    public Movie2jpg() throws IOException {
+    public Movie2jpg(File iniFile) throws IOException {
         workDir = new File(".");
         movieDir = new File(workDir, "Movie");      // './Movie'ディレクトリ
         imgDir = new File(workDir, "img");          // './img'ディレクトリ
-        this.params = new AppParams();
-        System.out.println(" - param: "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE) );
+        this.params = new AppParams(iniFile);
+        System.out.println(" - param: "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE));
     }
     
     /**
@@ -54,6 +55,9 @@ public class Movie2jpg {
         for (File mp4 : files) {
             ffmpeg(mp4);
         }
+        
+        // 作成されたファイルのロックを解除
+        chmod777(workDir);
     }
     
     /**
@@ -75,12 +79,30 @@ public class Movie2jpg {
         String rate = this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE);
         String dest = "img/"+ name +"/%05d.jpg";
         String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -r %s %s", mp4File.getAbsolutePath(), rate, dest);
-        System.out.println(commandLine);
+        System.out.println("# " + commandLine);
         
         Command command = new Command();
         command.setCmd(commandLine);
         command.setWorkDir(workDir);
         command.execCommand(workDir);
+    }
+    
+    /**
+     * コマンド：　~chmod 777 -R $(dir)~
+     * @param dir
+     * @throws java.io.IOException 
+     */
+    public void chmod777(File dir) throws Exception {
+        if (dir.exists()) {
+            String path = dir.getAbsolutePath();
+            String commandLine = String.format("chmod 777 -R %s", path);
+            System.out.println("# " + commandLine);
+
+            Command command = new Command();
+            command.setCmd(commandLine);
+            command.setWorkDir(null);
+            command.execCommand(command.getWorkDir());
+        }
     }
     
     /**
