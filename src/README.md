@@ -76,11 +76,14 @@ FFMPEG_OUTPUT_FRAME_RATE=1
 
 実行
 ```
-$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg ffmpeg -ss 0  -i Movie/20180401_071732A.mp4 -f image2 -r 15 img/%05d.jpg
 
 $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
 ```
+
+実行すると、「Movie2jpg」が起動され、`/home/yuu/Desktop/OSM/Movie`フォルダ内の「mp4」ファイルごとに
+`ffmpeg -ss 0 -i $(mp4 file) -f image2 -r $(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
+が実行されます。
 
 完了すると、`./OSM/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
