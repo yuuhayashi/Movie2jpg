@@ -64,9 +64,9 @@ $ docker build -t haya4/movie2jpg .
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例
 ```
 [FFMPEG]
-FFMPEG_OUTPUT_FRAME_RATE=1
+FFMPEG_OUTPUT_FRAME_RATE=30
 ```
-  - FFMPEG_OUTPUT_FRAME_RATE 1.0秒間隔で撮影した場合はfps=「30」とすると1.0間隔の静止画が取り出せる
+  - 1.0秒間隔で撮影した場合はFFMPEG_OUTPUT_FRAME_RATE=30 (fps=30) とすると1.0間隔の静止画が取り出せる
 
 
 
