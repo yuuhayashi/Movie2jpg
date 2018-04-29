@@ -144,7 +144,7 @@ public class Restamp extends Thread {
 	
     @SuppressWarnings("Convert2Lambda")
     public void setUp(File imgDir, File baseFile1, Date baseTime1,  File baseFile2, Date baseTime2) throws Exception {
-    	// 指定されたディレクトリ内のGPXファイルすべてを対象とする
+    	// 指定されたディレクトリ内のファイルすべてを対象とする
         File[] files = imgDir.listFiles();
         java.util.Arrays.sort(files, new java.util.Comparator<File>() {
             @Override
@@ -161,25 +161,25 @@ public class Restamp extends Thread {
                 String filename = file.getName().toUpperCase();
                 if (filename.toUpperCase().endsWith(".JPG")) {
                     this.jpgFiles.add(file);
-                    bCount1 += (base1 ? 0 : 1);
-                    bCount2 += (base2 ? 0 : 1);
                     if (file.getName().equals(baseFile1.getName())) {
                         base1 = true;
                     }
                     if (file.getName().equals(baseFile2.getName())) {
                         base2 = true;
                     }
+                    bCount1 += (base1 ? 0 : 1);
+                    bCount2 += (base2 ? 0 : 1);
                 }
             }
         }
 
         try {
             // imgDir内の画像ファイルを処理する
-            long span1 = baseTime2.getTime() - baseTime1.getTime();
+            long span1 = (baseTime2.getTime() - baseTime1.getTime()) * 1000L;
             long spanX = span1 / (bCount2 - bCount1);
             int i = 0;
             for (File jpgFile : this.jpgFiles) {
-                long deltaMsec = (i - bCount1) * spanX;
+                long deltaMsec = ((i - bCount1) * spanX) / 1000L;
                 i++;
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(baseTime1);
