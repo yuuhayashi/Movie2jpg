@@ -64,9 +64,9 @@ $ docker build -t haya4/movie2jpg .
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例
 ```
 [FFMPEG]
-FFMPEG_OUTPUT_FRAME_RATE=1
+FFMPEG_OUTPUT_FRAME_RATE=30
 ```
-  - FFMPEG_OUTPUT_FRAME_RATE 1.0秒間隔で撮影した場合はfps=「30」とすると1.0間隔の静止画が取り出せる
+  - 1.0秒間隔で撮影した場合はFFMPEG_OUTPUT_FRAME_RATE=30 (fps=30) とすると1.0間隔の静止画が取り出せる
 
 
 
@@ -167,7 +167,7 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
 9. JPEGファイルの更新日付を書き換える
 
 ```
-$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07_13:54:47 01725.jpg 2018-04-07_14:19:36
+$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
 ----
