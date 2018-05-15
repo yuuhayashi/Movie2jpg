@@ -228,9 +228,11 @@ GPSロガーは撮影中は操作しないのでポケットにでも入れて�
 
 同じ日時の同じ場所で撮ったものですが順光と逆光の違いが出ています。
 
-![F0023](F0023.png)
+![F0023](F0023.png)  
+  Mapillary [source](https://www.mapillary.com/app/?lat=35.31898300000002&lng=139.50388299999997&z=17&pKey=M3aMb8TsTjb5X4-leNg2vA&focus=photo)
 
 ![B0038](B0038.png)
+  Mapillary [source](https://www.mapillary.com/app/?lat=35.319126984127024&lng=139.504148&z=17&pKey=h3wbYks8AUXd29ai0w2nvQ&focus=photo)
 
 逆光はあれですが、  
 走行中に撮影した画像としてはなかなか品質ではないかとおもいます。
