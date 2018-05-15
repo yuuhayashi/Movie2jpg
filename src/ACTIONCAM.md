@@ -231,7 +231,7 @@ GPSロガーは撮影中は操作しないのでポケットにでも入れて�
 ![F0023](F0023.png)  
   Mapillary [source](https://www.mapillary.com/app/?lat=35.31898300000002&lng=139.50388299999997&z=17&pKey=M3aMb8TsTjb5X4-leNg2vA&focus=photo)
 
-![B0038](B0038.png)
+![B0038](B0038.png)  
   Mapillary [source](https://www.mapillary.com/app/?lat=35.319126984127024&lng=139.504148&z=17&pKey=h3wbYks8AUXd29ai0w2nvQ&focus=photo)
 
 逆光はあれですが、  
