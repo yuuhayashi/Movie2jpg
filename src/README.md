@@ -9,8 +9,6 @@
     最小0.5秒に設定することができるが、切り出したJPEGに撮影時刻を割り当てる際に１秒単位でしか設定することができないため、1秒間隔で十分。  
 
 
-## Docker 'haya4/movie2jpg'
-
 動画からMapillaryへアップロードするには、下記のステップ毎の処理が必要
 
  1. 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
@@ -25,11 +23,27 @@
 インストールと設定は、稼働させるOS毎に異なるため、説明が煩雑になるし、それぞれのOS毎の動作検証をすることもできません。
 そこで、ここでは *Docker* イメージ'haya4/movie2jpg'を使って説明をします。
 
+
+## Docker 'haya4/movie2jpg'
+
+### Dockerのインストール
+
  * ここでは [Docker]()についての説明は省略します。各自ネットで調べてください。
  * **Docker**をインストールしてください。インストール手順はネットで調べてください。
 
-
 ### docker build
+
+1. [Movie2jpg-master.zip](surveyor.mydns.jp/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
+フォルダ `Movie2jpg-master` が作成される
+
+2. 作成されたフォルダ `Movie2jpg-master` をCドライブの直下に移動する
+
+3. `Docker Quickstart Terminal` に下記コマンドを打ち込む(build)
+  ```
+  cd /c/Movie2jpg-master
+  docker build -t haya4/movie2jpg .
+  ```
+4. 
 
 [Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
 
