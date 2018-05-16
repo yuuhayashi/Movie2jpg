@@ -3,7 +3,7 @@
 # mkdir mapi
 # docker run -it -v $(pwd)/mapi:/mnt/osm haya4/movie2jpg bash
 #-----
-FROM ubuntu
+FROM ubuntu:16.04
 
 # SETUP 
 RUN apt-get -qq update && \
