@@ -1,8 +1,9 @@
 #--------------------------------------------------------------------------
 # docker build -t haya4/movie2jpg .
-# docker run -p 80:8080 -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg bash
+# mkdir mapi
+# docker run -it -v $(pwd)/mapi:/mnt/osm haya4/movie2jpg bash
 #-----
-FROM haya4/mapillary-tools
+FROM ubuntu
 
 # SETUP 
 RUN apt-get -qq update && \
