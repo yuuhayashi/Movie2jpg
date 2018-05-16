@@ -43,6 +43,8 @@
   cd /c/Movie2jpg-master
   docker build -t haya4/movie2jpg .
   ```
+  小一時間かかります
+
 4. 
 
 [Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
