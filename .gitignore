@@ -3,8 +3,6 @@
 bin/**
 classes/
 sample/
-dest/**
-*.jar
 database/
 glassfish5/
 
@@ -29,4 +27,3 @@ ehthumbs.db
 [Tt]humbs.db
 **/nbproject/private/
 /build/**
-/dist/**
