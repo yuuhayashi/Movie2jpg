@@ -71,20 +71,26 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 ### 静止画の切り出し処理を実行 - Docker run
 
 実行:   
+
+#### Linuxの場合
   ```
 
   docker run -it -v ~/Movie2jpg-master:/mnt/osm haya4/movie2jpg:rw java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
   ```
-  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
-実行すると、「Movie2jpg」が起動され、`/home/yuu/Desktop/OSM/Movie`フォルダ内の「mp4」ファイルごとに
+#### Windowsの場合
+  ```
+  docker run -it -v /c/Movie2jpg-master:/mnt/osm haya4/movie2jpg:rw java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  ```
 
-`ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
+  実行すると、「Movie2jpg」が起動され、`/home/yuu/Desktop/OSM/Movie`フォルダ内の「mp4」ファイルごとに
 
-が実行されます。
+  `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
 
-完了すると、`./OSM/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
+  が実行されます。
+
+  完了すると、`./OSM/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
 ~/
