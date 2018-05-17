@@ -26,7 +26,11 @@
 そこで、ここでは *Docker* イメージ'haya4/movie2jpg'を使って説明をします。
 
 
-## Docker 'haya4/movie2jpg'
+## 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
+
+### Dockerのインストールとビルド
+
+  **Docker 'haya4/movie2jpg'**
 
 初回に限りDockerのインストールとビルドが必要です。
 
@@ -38,25 +42,25 @@
 撮影した動画ファイルを所定の場所に配置します。
 
 ```
-/home/yuu/Desktop
+~/
 ┃
-┗━ ./OSM
+┗━ ~/Movie2jpg-master
 　　　┃
-　　　┣━ ./OSM/img
+　　　┣━ ~/Movie2jpg-master/img
 　　　┃
-　　　┗━ ./OSM/Movie
+　　　┗━ ~/Movie2jpg-master/Movie
 　　　　　　┃
 　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
-
 ```
+  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
  * フォルダ `/home/yuu/Desktop/OSM/Movie` に MP4ファイルを配置する。
 
  * フォルダ `/home/yuu/Desktop/OSM/Movie` に `Movie2jpg.ini` を配置する。
 
-[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例
+[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
 ```
 [FFMPEG]
 FFMPEG_OUTPUT_FRAME_RATE=30
@@ -64,29 +68,30 @@ FFMPEG_OUTPUT_FRAME_RATE=30
   - 1.0秒間隔で撮影した場合はFFMPEG_OUTPUT_FRAME_RATE=30 (fps=30) とすると1.0間隔の静止画が取り出せる
 
 
+### 静止画の切り出し処理を実行 - Docker run
 
+実行:   
+  ```
 
-### Docker run
+  docker run -it -v ~/Movie2jpg-master:/mnt/osm haya4/movie2jpg:rw java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
-実行
-```
-
-$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
-
-```
+  ```
+  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
 実行すると、「Movie2jpg」が起動され、`/home/yuu/Desktop/OSM/Movie`フォルダ内の「mp4」ファイルごとに
+
 `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
+
 が実行されます。
 
 完了すると、`./OSM/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
-/home/yuu/Desktop
+~/
 ┃
-┗━ ./OSM
+┗━ ~/Movie2jpg-master
 　　　┃
-　　　┣━ ./OSM/img
+　　　┣━ ~/Movie2jpg-master/img
 　　　┃　　┣━ XXXX
 　　　┃　　┃　　┣━ 00001.jpg
 　　　┃　　┃　　┣━ 00002.jpg
@@ -99,11 +104,13 @@ $ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/r
 　　　┃　　　　　┣━     :
 　　　┃　　　　　┗━ 02408.jpg
 　　　┃
-　　　┗━ ./OSM/Movie
+　　　┗━ ~/Movie2jpg-master/Movie
 　　　　　　┃
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 ```
+  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
+
 
 -----
 
