@@ -26,36 +26,6 @@
 そこで、ここでは *Docker* イメージ'haya4/movie2jpg'を使って説明をします。
 
 
-## Docker 'haya4/movie2jpg'
-
-### Dockerのインストール
-
- * ここでは [Docker]()についての説明は省略します。各自ネットで調べてください。
- * **Docker**をインストールしてください。インストール手順はネットで調べてください。
-
-### docker build
-
-1. [Movie2jpg-master.zip](surveyor.mydns.jp/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
-フォルダ `Movie2jpg-master` が作成される
-
-2. 作成されたフォルダ `Movie2jpg-master` をCドライブの直下に移動する
-
-3. `Docker Quickstart Terminal` に下記コマンドを打ち込む(build)
-  ```
-  cd /c/Movie2jpg-master
-  docker build -t haya4/movie2jpg .
-  ```
-  小一時間かかります
-
-4. 
-
-[Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
-
-  ```
-$ cd /home/yuu/workspace/Movie2jpg
-$ docker build -t haya4/movie2jpg .
-  ```
-
 ### 動画ファイルのセット
 
 撮影した動画ファイルを所定の場所に配置します。
