@@ -26,6 +26,13 @@
 そこで、ここでは *Docker* イメージ'haya4/movie2jpg'を使って説明をします。
 
 
+## Docker 'haya4/movie2jpg'
+
+初回に限りDockerのインストールとビルドが必要です。
+
+こちら → [DockerBuild](DOCKERBUILD.md) を参考にしてインストールとビルドを行ってください。
+
+
 ### 動画ファイルのセット
 
 撮影した動画ファイルを所定の場所に配置します。
