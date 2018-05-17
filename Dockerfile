@@ -15,6 +15,7 @@ RUN \
     apt-get -qq update && \
     apt-get -yqq install openjdk-8-jdk
 RUN apt-get -yqq install unzip
+RUN mkdir /mnt/osm
 
 COPY ./dist/lib/commons-imaging-1.0-20170205.201009-115.jar /root
 
