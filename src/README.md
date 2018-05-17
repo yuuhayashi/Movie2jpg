@@ -56,9 +56,9 @@
 ```
   'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
- * フォルダ `/home/yuu/Desktop/OSM/Movie` に MP4ファイルを配置する。
+ * フォルダ `~/Movie2jpg-master/Movie` に MP4ファイルを配置する。
 
- * フォルダ `/home/yuu/Desktop/OSM/Movie` に `Movie2jpg.ini` を配置する。
+ * フォルダ `~/Movie2jpg-master/Movie` に `Movie2jpg.ini` を配置する。
 
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
 ```
@@ -75,22 +75,22 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 #### Linuxの場合
   ```
 
-  docker run -it -v ~/Movie2jpg-master:/mnt/osm haya4/movie2jpg:rw java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v ~/Movie2jpg-master:/mnt/osm:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
   ```
 
 #### Windowsの場合
   ```
-  docker run -it -v /c/Movie2jpg-master:/mnt/osm haya4/movie2jpg:rw java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v /c/Movie2jpg-master:/mnt/osm:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
-  実行すると、「Movie2jpg」が起動され、`/home/yuu/Desktop/OSM/Movie`フォルダ内の「mp4」ファイルごとに
+  実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/Movie`フォルダ内の「mp4」ファイルごとに
 
   `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
 
   が実行されます。
 
-  完了すると、`./OSM/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
+  完了すると、`~/Movie2jpg-master/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
 ~/
