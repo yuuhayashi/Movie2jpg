@@ -13,7 +13,7 @@
 
 ### 'Linux編'
 
-1. [Movie2jpg-master.zip](surveyor.mydns.jp/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
+1. [Movie2jpg-master.zip](/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
 フォルダ `Movie2jpg-master` が作成される
 
 2. 作成されたフォルダ `Movie2jpg-master` をホームディレクトリ直下に移動する
@@ -31,7 +31,7 @@
 
 ### 'Windows編'
 
-1. [Movie2jpg-master.zip](surveyor.mydns.jp/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
+1. [Movie2jpg-master.zip](/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
 フォルダ `Movie2jpg-master` が作成される
 
 2. 作成されたフォルダ `Movie2jpg-master` をCドライブの直下に移動する
