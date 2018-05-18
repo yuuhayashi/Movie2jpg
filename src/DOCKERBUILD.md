@@ -20,9 +20,9 @@
 
 3. `Terminal` に下記コマンドを打ち込む(build)
   ```
-  mkdir -f ~/mapi
-  mkdir -f ~/mapi/Movie
-  mkdir -f ~/mapi/img
+  mkdir ~/mapi
+  mkdir ~/mapi/Movie
+  mkdir ~/mapi/img
   cd ~/Movie2jpg-master
   cp Movie2jpg.ini ~/mapi/Movie
   docker build -t haya4/movie2jpg .
