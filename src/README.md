@@ -81,16 +81,16 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 #### Windowsの場合
   ```
-  docker run -it -v c:/Movie2jpg-master/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg /mnt/mapi/Movie/Movie2jpg.ini
+  docker run -it -v c:/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg /mnt/mapi/Movie/Movie2jpg.ini
   ```
 
-  実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/Movie`フォルダ内の「mp4」ファイルごとに
+  実行すると、「Movie2jpg」が起動され、`~/mapi/Movie`フォルダ内の「mp4」ファイルごとに
 
   `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
 
   が実行されます。
 
-  完了すると、`~/Movie2jpg-master/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
+  完了すると、`~/mapi/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
 ~/
