@@ -56,9 +56,9 @@
 ```
   'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
- * フォルダ `~/Movie2jpg-master/Movie` に MP4ファイルを配置する。
+ * フォルダ `~/mapi/Movie` に MP4ファイルを配置する。
 
- * フォルダ `~/Movie2jpg-master/Movie` に `Movie2jpg.ini` を配置する。
+ * フォルダ `~/mapi/Movie` に `Movie2jpg.ini` を配置する。
 
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
 ```
@@ -175,7 +175,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 9. JPEGファイルの更新日付を書き換える
 
 ```
-$ docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
+$ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
 ----
