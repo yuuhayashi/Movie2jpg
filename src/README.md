@@ -44,11 +44,11 @@
 ```
 ~/
 ┃
-┗━ ~/Movie2jpg-master
+┗━ ~/Mo
 　　　┃
-　　　┣━ ~/Movie2jpg-master/img
+　　　┣━ ~/Momapimg
 　　　┃
-　　　┗━ ~/Movie2jpg-master/Movie
+　　　┗━ ~/Momapiovie
 　　　　　　┃
 　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
