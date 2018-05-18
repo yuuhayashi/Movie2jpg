@@ -44,11 +44,11 @@
 ```
 ~/
 ┃
-┗━ ~/Mo
+┗━ ~/mapi
 　　　┃
-　　　┣━ ~/Momapimg
+　　　┣━ ~/mapi/img
 　　　┃
-　　　┗━ ~/Momapiovie
+　　　┗━ ~/mapi/Movie
 　　　　　　┃
 　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
@@ -74,8 +74,8 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 #### Linuxの場合
   ```
-
-  docker run -it -v ~/Movie2jpg-master/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  cd
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
   ```
 
@@ -95,9 +95,9 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 ```
 ~/
 ┃
-┗━ ~/Movie2jpg-master
+┗━ ~/mapi
 　　　┃
-　　　┣━ ~/Movie2jpg-master/img
+　　　┣━ ~/mapi/img
 　　　┃　　┣━ XXXX
 　　　┃　　┃　　┣━ 00001.jpg
 　　　┃　　┃　　┣━ 00002.jpg
@@ -110,7 +110,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 　　　┃　　　　　┣━     :
 　　　┃　　　　　┗━ 02408.jpg
 　　　┃
-　　　┗━ ~/Movie2jpg-master/Movie
+　　　┗━ ~/mapi/Movie
 　　　　　　┃
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
