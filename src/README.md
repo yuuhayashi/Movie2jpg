@@ -4,7 +4,9 @@
 
   撮影編はこちらを参照 → [中華アクションカムについて](ACTIONCAM.md)
 
-## タイムラプスモード設定
+## 撮影モードの設定
+
+#### タイムラプスモード設定
 
  * 間隔は１秒  
     GPSロガーのロギング間隔を１秒間に設定するのでそれに合わせてタイムラプスも１秒間隔で十分。  
@@ -27,6 +29,13 @@
 
 
 ## 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
+
+![Movie to JPEG](movie2jpeg.png)
+
+撮影された動画ファイルから１秒間隔の静止画を取り出します。
+
+  ソースとなる動画ファイルはタイムラプス撮影されたものに限定されるわけではありませんが、他の撮影方法で撮影された動画の動作確認は行っていませんので動くかどうかはわかりません。
+
 
 ### Dockerのインストールとビルド
 
@@ -81,7 +90,8 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 #### Windowsの場合
   ```
-  docker run -it -v c:/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg /mnt/mapi/Movie/Movie2jpg.ini
+  cd
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
   実行すると、「Movie2jpg」が起動され、`~/mapi/Movie`フォルダ内の「mp4」ファイルごとに
@@ -127,9 +137,10 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 時間ウォーターマークが設定されている場合は、下記の方法で抽出されたイメージファイルに撮影時刻を設定することができます。
 
 
+
 ### 時間ウォーターマークを使ったファイル更新日時の再設定
 
-4. ~img~フォルダの画像を画像ビューワなどで開き、サムネイルなどで画像が撮影された位置が特定できるファイルを見つける
+1. ~img~フォルダの画像を画像ビューワなどで開き、サムネイルなどで画像が撮影された位置が特定できるファイルを見つける
 
   ![TimeWaterMark01](TimeWaterMark01.png)
 
@@ -137,6 +148,8 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 ```
 $ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
+
+ * ちなみに、**Movie2jpg.jar** は私の[自作](../LICENSE.txt)ソフトウェアです。
 
 ----
 
