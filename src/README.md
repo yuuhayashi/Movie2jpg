@@ -311,7 +311,7 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ----
 
-## 9. Mapillary-tools を使って*Mapillary*に一括大量アップロード
+## 9. 'Mapillary-tools'を使って*Mapillary*に一括大量アップロード
 
 ![upload to Mapillary](upload.png)
 
@@ -320,7 +320,7 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ここでは Docker を使った方法を紹介します。
 
-### 9.1 mapillary_tools のインストールとビルド
+### 9.1 'mapillary_tools'のインストールとビルド
 
   **Docker 'mapillary_tools'**
 
@@ -345,23 +345,20 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 　　　　　　┃
 　　　　　　┗━ ~/mapi/img/duplicate
 ```
- * ` ~/mapi/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く  
-  ` `/mapi/gpx` に作成されたEXiFが付与されたファイルが入ったフォルダを~ ~/mapi/img/m~フォルダに変更する
+ * 「~/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
+  「`/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/mapi/img/m」フォルダに変更する
 
- * ~ ~/mapi/img/duplicate~フォルダに重複ファイルが置かれる
+ * 「~/mapi/img/duplicate」フォルダに重複ファイルが置かれる
 
 
 ### 9.3 Docker 'mapillary_tools'の実行
 
 ```
 cd ~/mapillary_tools
-docker build -t mapillary_tools .
+docker run -it -v ~/mapi:/mnt/mapi mapillary_tools /bin/bash /root/mapillary.sh
 ```
 
   ```
-  cd ~/workspace/Movie2jpg
-  docker run -it -v ~/mapi:/mnt/mapi mapillary_tools /bin/bash /root/mapillary.sh
-  
   -v ~/mapi:/mnt/mapi
     PCのフォルダ(~/mapi)をコンテナのフォルダ(/mnt/mapi)にマウントする
   
