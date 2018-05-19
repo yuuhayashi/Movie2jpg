@@ -206,7 +206,7 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 
 1. **Java実行環境**をインストールしてください。インストール方法は割愛します。
 
-2. [AdjustTime2](https://osdn.net/projects/importpicture/downloads/66062/AdjustTime2_20160828.zip/)をダウンロードする
+2. [AdjustTime2](https://osdn.net/dl/importpicture/AdjustTime2_20180519.zip)をダウンロードする
 
 3. ダウンロードした ZIPファイルをホームディレクトリ(`~/AdjustTime2`)に展開する
 
