@@ -184,7 +184,7 @@ cd
 docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
-ターミナルにコマンドラインを貼り付けて実行する。
+ターミナルにコマンドラインを貼り付けて実行すると、JPEGファイルのファイル更新日時が「撮影日時」に書き換わります。
 
 
 ----
@@ -201,6 +201,15 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 
 
 ### AdjustTime2を使う
+
+ここでは 私の自作ツールを使ってEXiFに位置情報を書き込む方法を説明します。
+
+1. **Java実行環境**をインストールしてください。インストール方法は割愛します。
+
+2. [AdjustTime2](https://osdn.net/projects/importpicture/downloads/66062/AdjustTime2_20160828.zip/)をダウンロードする
+
+3. ダウンロードした ZIPファイルを展開する
+
 
 
 ----
