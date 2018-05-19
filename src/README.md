@@ -308,25 +308,25 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ----
 
-## 9. Mapillary-tools を使って*Mapillary*に大量アップ
+## 9. Mapillary-tools を使って*Mapillary*に一括大量アップロード
 
 ```
-/home/yuu/Desktop
+~/
 ┃
-┗━ ./OSM
+┗━ ~/mapi
 　　　┃
-　　　┗━ ./OSM/img
-　　　　　　┣━ ./OSM/img/m
+　　　┗━ ~/mapi/img
+　　　　　　┣━ ~/mapi/img/m
 　　　　　　┃　　┣━ 00001.jpg
 　　　　　　┃　　┣━ 00002.jpg
 　　　　　　┃　　┣━     :
 　　　　　　┃　　┗━ 01861.jpg
 　　　　　　┃
-　　　　　　┗━ ./OSM/img/duplicate
+　　　　　　┗━ ~/mapi/img/duplicate
 ```
- * ~/home/yuu/Desktop/OSM/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く
+ * ~~/mapi/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く
 
- * ~/home/yuu/Desktop/OSM/img/duplicate~フォルダに重複ファイルが置かれる
+ * ~~/mapi/img/duplicate~フォルダに重複ファイルが置かれる
 
 
 ### Docker mapillary_tools
