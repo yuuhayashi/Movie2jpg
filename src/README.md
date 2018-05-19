@@ -225,23 +225,26 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
   ![Select file](Screenshot03.png)  
    → 「次へ」
 
-7. 既に撮影時刻が設定されているので、そのまま「次へ」  
+7. そのまま「次へ」  
+  ![Screenshot04](Screenshot04.png)  
+
+8. 既に撮影時刻が設定されているので、そのまま「次へ」  
   ![Screenshot05](Screenshot05.png)  
 
-8. *GPXフォルダ* に「``/mapi/gpx`」をセットして、「次へ」  
+9. *GPXフォルダ* に「``/mapi/gpx`」をセットして、「次へ」  
   ![Screenshot06](Screenshot06.png)  
   フォルダを設定した時は、そのフォルダ内のすべてのGPXファイルをひも付けの対象とします。  
   GPXファイルを指定した時は、指定されたGPXファイルのみひも付けの対象とします。
 
-9. *書き出しフォルダ* に「``/mapi/gpx`」をセット  
+10. *書き出しフォルダ* に「``/mapi/gpx`」をセット  
   ![Screenshot07](Screenshot07.png)  
   「EXIFの変換をする」にチェックをつける
 
-10. 「処理実行」ボタン  
+11. 「処理実行」ボタン  
   ![Screenshot08](Screenshot08.png)  
   「実行」ホタン
 
-11. 処理が終わったら「閉じる」ボタン
+12. 処理が終わったら「閉じる」ボタン
 
 
 
