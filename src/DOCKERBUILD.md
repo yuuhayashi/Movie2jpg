@@ -20,11 +20,11 @@
 
 3. `Terminal` に下記コマンドを打ち込む(build)
   ```
-  mkdir ~/Movie2jpg-master/mapi
-  mkdir ~/Movie2jpg-master/mapi/Movie
-  mkdir ~/Movie2jpg-master/mapi/img
   cd ~/Movie2jpg-master
-  cp Movie2jpg.ini ~/Movie2jpg-master/mapi/Movie
+  mkdir mapi
+  mkdir mapi/Movie
+  mkdir mapi/img
+  cp Movie2jpg.ini mapi/Movie
   docker build -t haya4/movie2jpg .
   ```
   小一時間かかります
@@ -40,10 +40,10 @@
 3. `Docker Quickstart Terminal` に下記コマンドを打ち込む(build)
   ```
   cd /c/Movie2jpg-master
-  mkdir /c/Movie2jpg-master/mapi
-  mkdir /c/Movie2jpg-master/mapi/Movie
-  mkdir /c/Movie2jpg-master/mapi/img
-  cp Movie2jpg.ini /c/Movie2jpg-master/mapi/Movie
+  mkdir mapi
+  mkdir mapi/Movie
+  mkdir mapi/img
+  cp Movie2jpg.ini mapi/Movie
   docker build -t haya4/movie2jpg .
   ```
   小一時間かかります
