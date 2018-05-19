@@ -20,7 +20,46 @@
 
 2. 作成されたフォルダ `mapillary_tools-master` をホームディレクトリ直下に移動する
 
-3. `Terminal` に下記コマンドを打ち込む(build)
+3. `~/mapi/mapillary_tools-master/mapillary.sh` をテキストエディタで開いて、下記のように書き換えてください  
+  ```
+  export MAPILLARY_EMAIL="hayashi.yuu@gmail.com"
+  export MAPILLARY_PASSWORD="password"
+  export MAPILLARY_USERNAME="hayashi"
+  export MAPILLARY_PERMISSION_HASH="eyJleHBpcmFiMjAyMC....F1dfQ=="
+  export MAPILLARY_SIGNATURE_HASH="SwRGN.....GI="
+  
+  python /source/mapillary_tools/python/remove_duplicates.py /mnt/mapi/img/m/ /mnt/mapi/img/duplicate/
+  python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/mapi/img/m/
+  ```
+
+4. `~/mapi/mapillary_tools-master/Dockerfile` をテキストエディタで開いて、下記のように書き換えてください  
+  ```
+  FROM ubuntu:16.04
+  
+  # SETUP
+  RUN \
+    apt-get -qq update && \
+    apt-get -yqq install \
+        git \
+        python-pip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+  
+  RUN \
+    pip install --upgrade pip
+  
+  RUN mkdir /mnt/mapi
+  
+  COPY . /source/mapillary_tools
+  
+  WORKDIR /source/mapillary_tools
+  
+  RUN pip install -r python/requirements.txt
+  
+  COPY ./mapillary.sh /root
+  ```
+
+5. `Terminal` に下記コマンドを打ち込む(build)
   ```
   mkdir ~/mapi
   mkdir ~/mapi/Movie

@@ -327,8 +327,6 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
  * [mapillary_tools](https://github.com/mapillary/mapillary_tools)
 
-
-
 ```
 ~/
 ┃
@@ -348,72 +346,22 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
  * ~~/mapi/img/duplicate~フォルダに重複ファイルが置かれる
 
 
-### Docker mapillary_tools
-
-#### Dockerfile
+### Docker 'mapillary_tools'の実行
 
 ```
-FROM ubuntu:16.04
-
-# SETUP
-RUN apt-get -qq update
-RUN apt-get -y upgrade
-RUN \
-    apt-get -qq update && \
-    apt-get -yqq install \
-        git \
-        python-pip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN \
-    pip install --upgrade pip
-
-RUN mkdir /mnt/osm
-
-COPY . /source/mapillary_tools
-
-WORKDIR /source/mapillary_tools
-
-RUN pip install -r python/requirements.txt
-
-RUN apt-get -qq update
-RUN apt-get -yqq install openjdk-8-jre
+cd ~/mapillary_tools
+docker build -t mapillary_tools .
 ```
 
-#### Docker build
-
-~mapillary.sh~  
-```
-export MAPILLARY_EMAIL="hayashi.yuu@gmail.com"
-export MAPILLARY_PASSWORD="yuu8844"
-export MAPILLARY_USERNAME="hayashi"
-export MAPILLARY_PERMISSION_HASH="eyJleHBpcmF0aW9uIjoiMjAyMC0wMS0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJtYXBpbGxhcnkudXBsb2Fkcy5tYW51YWwuaW1hZ2VzIn0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCJoYXlhc2hpLyJdLHsiYWNsIjoicHJpdmF0ZSJ9LFsic3RhcnRzLXdpdGgiLCIkQ29udGVudC1UeXBlIiwiIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCw1MDAwMDAwMF1dfQ=="
-export MAPILLARY_SIGNATURE_HASH="SwRGN9K/FN+FpXPSO09LvuhBAGI="
-
-# python /source/mapillary_tools/python/geotag_from_gpx.py /mnt/osm/img/m/ /mnt/osm/img/2016-04-09_150103.gpx
-
-python /source/mapillary_tools/python/remove_duplicates.py /mnt/osm/img/m/ /mnt/osm/img/duplicate/
-
-python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/osm/img/m/
-```
-
-```
-cd /home/yuu/workspace/mapillary_tools
-docker build -t haya4/movie2jpg .
-```
-
-#### Docker run
-
-```
-cd /home/yuu/Desktop/workspace/Movie2jpg
-docker run -it -v /home/yuu/Desktop/OSM:/mnt/osm haya4/movie2jpg /bin/bash /root/mapillary.sh
-
--v /home/yuu/Desktop/OSM:/mnt/osm
-    PCのフォルダ(/home/yuu/Desktop/OSM)をコンテナのフォルダ(/mnt/osm)にマウントする
-
-# cd /root
-# sh ./mapillary.sh
-#     :
-#
-```
+  ```
+  cd ~/workspace/Movie2jpg
+  docker run -it -v ~/mapi:/mnt/mapi mapillary_tools /bin/bash /root/mapillary.sh
+  
+  -v ~/mapi:/mnt/mapi
+    PCのフォルダ(~/mapi)をコンテナのフォルダ(/mnt/mapi)にマウントする
+  
+  # cd /root
+  # sh ./mapillary.sh
+  #     :
+  #
+  ```
