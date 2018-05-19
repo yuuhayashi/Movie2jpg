@@ -191,7 +191,17 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 
 ## 4. GPSログとJPEGの更新日付を付きあわせてJPEGのEXiFに位置情報を書き込む
 
+![AdjustGPX](adjustGPX1.png)
+
+**撮影日時**がファイルの更新日時に設定されると、GPXファイルとファイル更新日時を付きあわせてJPEGのEXIFに書き込む方法は無数に有ります。
+
+使い慣れたツールを使って JPEGファイルのEXiF情報に位置情報を書き込んでください。
+
+![AdjustGPX](adjustGPX2.png)
+
+
 ### AdjustTime2を使う
+
 
 ----
 
