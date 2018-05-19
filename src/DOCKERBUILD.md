@@ -20,11 +20,11 @@
 
 3. `Terminal` に下記コマンドを打ち込む(build)
   ```
-  mkdir ~/mapi
-  mkdir ~/mapi/Movie
-  mkdir ~/mapi/img
+  mkdir ~/Movie2jpg-master/mapi
+  mkdir ~/Movie2jpg-master/mapi/Movie
+  mkdir ~/Movie2jpg-master/mapi/img
   cd ~/Movie2jpg-master
-  cp Movie2jpg.ini ~/mapi/Movie
+  cp Movie2jpg.ini ~/Movie2jpg-master/mapi/Movie
   docker build -t haya4/movie2jpg .
   ```
   小一時間かかります
@@ -40,10 +40,10 @@
 3. `Docker Quickstart Terminal` に下記コマンドを打ち込む(build)
   ```
   cd /c/Movie2jpg-master
-  mkdir /c/mapi
-  mkdir /c/mapi/Movie
-  mkdir /c/mapi/img
-  cp Movie2jpg.ini /c/mapi/Movie
+  mkdir /c/Movie2jpg-master/mapi
+  mkdir /c/Movie2jpg-master/mapi/Movie
+  mkdir /c/Movie2jpg-master/mapi/img
+  cp Movie2jpg.ini /c/Movie2jpg-master/mapi/Movie
   docker build -t haya4/movie2jpg .
   ```
   小一時間かかります
@@ -53,7 +53,5 @@
 
 [Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
 
-  ```
-$ cd ~/workspace/Movie2jpg
-$ docker build -t haya4/movie2jpg .
-  ```
+----
+[タイムラプス動画ファイルから静止画を生成する](README.md)
