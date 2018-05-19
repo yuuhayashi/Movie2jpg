@@ -32,6 +32,14 @@
   python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/mapi/img/m/
   ```
 
+[Mapillary](https://www.mapillary.com/app/settings/developers) へログインし、「Developer」のページを表示させ、そこに記載された項目を`mapillary.sh`に設定してください。
+
+ * MAPILLARY_EMAIL　Mapilarry にログインする時に使っているメールアドレス
+ * MAPILLARY_PASSWORD　パスワード
+ * MAPILLARY_USERNAME   ユーザー名
+ * MAPILLARY_PERMISSION_HASH
+ * MAPILLARY_SIGNATURE_HASH
+
 4. `~/mapi/mapillary_tools-master/Dockerfile` をテキストエディタで開いて、下記のように書き換えてください  
   ```
   FROM ubuntu:16.04
@@ -71,10 +79,4 @@
 
 
 ----
-
-[Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
-
-  ```
-$ cd ~/workspace/Movie2jpg
-$ docker build -t haya4/movie2jpg .
-  ```
+[タイムラプス動画ファイルから静止画を生成する](README.md)
