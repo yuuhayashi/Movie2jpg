@@ -215,8 +215,23 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
   cd
   cd AdjustTime2
   chmod +x AdjustTime2.sh
-  AdjustTime2.sh
+  ./AdjustTime2.sh
   ```
+
+5. *AdjustTime2* の画面が開いたら、「選択」ボタンを押して連番JPEGファイルが格納されているフォルダを**対象フォルダ**フィールドにセットする → 「次へ」  
+  ![Screenshot01](Screenshot01.png)
+
+6. 「選択」ボタンを押して任意のファイルを選択する → 「基準時刻画像」にファイルが選択される  
+  ![Select file](Screenshot03.png)  
+   → 「次へ」
+
+7. 既に撮影時刻が設定されているので、そのまま「次へ」  
+  ![Screenshot05](Screenshot05.png)  
+
+8. *GPXフォルダ* に「``/mapi/gpx`」をセットして、「次へ」  
+  ![Screenshot06](Screenshot06.png)  
+  フォルダを設定した時は、そのフォルダ内のすべてのGPXファイルをひも付けの対象とします。  
+  GPXファイルを指定した時は、指定されたGPXファイルのみひも付けの対象とします。
 
 
 
