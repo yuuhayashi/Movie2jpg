@@ -34,6 +34,8 @@
 
 [Mapillary](https://www.mapillary.com/app/settings/developers) へログインし、「Developer」のページを表示させ、そこに記載された項目を`mapillary.sh`に設定してください。
 
+  ![mapiProfile](mapiProfile.png)
+
  * MAPILLARY_EMAIL　Mapilarry にログインする時に使っているメールアドレス
  * MAPILLARY_PASSWORD　パスワード
  * MAPILLARY_USERNAME   ユーザー名
