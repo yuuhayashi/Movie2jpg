@@ -208,7 +208,15 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 
 2. [AdjustTime2](https://osdn.net/projects/importpicture/downloads/66062/AdjustTime2_20160828.zip/)をダウンロードする
 
-3. ダウンロードした ZIPファイルを展開する
+3. ダウンロードした ZIPファイルをホームディレクトリ(`~/AdjustTime2`)に展開する
+
+4. コマンドを叩いて 起動する  
+  ```
+  cd
+  cd AdjustTime2
+  chmod +x AdjustTime2.sh
+  AdjustTime2.sh
+  ```
 
 
 
