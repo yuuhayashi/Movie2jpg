@@ -325,7 +325,8 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 こちら → [MAPILLARY_TOOLS_BUILD](MAPILLARY_TOOLS_BUILD.md) を参考にしてインストールとビルドを行ってください。
 
- * [mapillary_tools](https://github.com/mapillary/mapillary_tools)
+
+### 'mapillary_tools'の設定
 
 ```
 ~/
@@ -341,7 +342,8 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 　　　　　　┃
 　　　　　　┗━ ~/mapi/img/duplicate
 ```
- * ~~/mapi/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く
+ * ~~/mapi/img/m~フォルダにMapillaryにアップしたいJPEGファイルを置く  
+  ``/mapi/gpx` に作成されたEXiFが付与されたファイルが入ったフォルダを~~/mapi/img/m~フォルダに変更する
 
  * ~~/mapi/img/duplicate~フォルダに重複ファイルが置かれる
 
