@@ -4,7 +4,7 @@
 
   撮影編はこちらを参照 → [中華アクションカムについて](ACTIONCAM.md)
 
-## 撮影モードの設定
+## 1. 撮影モードの設定
 
 #### タイムラプスモード設定
 
@@ -28,7 +28,7 @@
 そこで、ここでは *Docker* イメージ'haya4/movie2jpg'を使って説明をします。
 
 
-## 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
+## 2. 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
 
 ![Movie to JPEG](movie2jpeg.png)
 
@@ -130,7 +130,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 -----
 
-# 連番JPEGファイルに撮影時刻を割り付ける
+## 3. 連番JPEGファイルに撮影時刻を割り付ける
 
 生成された連番JPEGファイルに撮影時刻を書き込む必要が有ります。
 
@@ -188,13 +188,13 @@ $ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie
 
 ----
 
-# GPSログとJPEGの更新日付を付きあわせてJPEGのEXiFに位置情報を書き込む
+## 4. GPSログとJPEGの更新日付を付きあわせてJPEGのEXiFに位置情報を書き込む
 
 ### AdjustTime2を使う
 
 ----
 
-# Mapillary-tools を使って*Mapillary*に大量アップ
+## 5. Mapillary-tools を使って*Mapillary*に大量アップ
 
 ```
 /home/yuu/Desktop
@@ -215,9 +215,9 @@ $ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie
  * ~/home/yuu/Desktop/OSM/img/duplicate~フォルダに重複ファイルが置かれる
 
 
-## Docker mapillary_tools
+### Docker mapillary_tools
 
-### Dockerfile
+#### Dockerfile
 
 ```
 FROM ubuntu:16.04
@@ -248,7 +248,7 @@ RUN apt-get -qq update
 RUN apt-get -yqq install openjdk-8-jre
 ```
 
-### Docker build
+#### Docker build
 
 ~mapillary.sh~  
 ```
@@ -270,7 +270,7 @@ cd /home/yuu/workspace/mapillary_tools
 docker build -t haya4/movie2jpg .
 ```
 
-### Docker run
+#### Docker run
 
 ```
 cd /home/yuu/Desktop/workspace/Movie2jpg
