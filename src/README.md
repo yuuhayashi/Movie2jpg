@@ -244,14 +244,42 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
   ![Screenshot08](Screenshot08.png)  
   「実行」ホタン
 
-12. 処理が終わったら「閉じる」ボタン
+12. 処理が終わったら「閉じる」ボタン  
+  ```
+  ~/
+  ┃
+  ┗━ ~/mapi
+  　　　┃
+  　　　┗━ ~/mapi/gpx
+  　　　　　　┃
+  　　　　　　┗━ ~/mapi/gpx/XXX
+  　　　　　　　　　┣━ 00001.jpg
+  　　　　　　　　　┣━ 00002.jpg
+  　　　　　　　　　┣━     :
+  　　　　　　　　　┗━ 01861.jpg
+  ```
+  EXiFが付与されたファイルが ``/mapi/gpx` に作成されます。
 
+
+----
+
+## 6. カメラとGPSロガーとのタイミング調整を行う
+
+カメラもGPSロガーも正確な時刻と同期させていれば 撮影時刻＝GPS位置 が一致するようにみえますが、実際には カメラとロガーとの相性の関係で、組み合わせによって２〜６秒ほどのズレが生じます。
+
+次にこのズレの補正方法を示します。
+
+1. **Java実行環境**をインストールしてください。インストール方法は割愛します。
+
+2. **[JOSM](https://josm.openstreetmap.de/)**をインストールしてください。インストール方法は割愛します。
+
+3. 
 
 
 
 ----
 
-## 5. Mapillary-tools を使って*Mapillary*に大量アップ
+## 7. Mapillary-tools を使って*Mapillary*に大量アップ
 
 ```
 /home/yuu/Desktop
