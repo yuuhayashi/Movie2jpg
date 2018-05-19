@@ -22,11 +22,11 @@
 
 3. `~/mapillary_tools-master/mapillary.sh` をテキストエディタで開いて、下記のように書き換えてください  
   ```
-  export MAPILLARY_EMAIL="hayashi.yuu@gmail.com"
+  export MAPILLARY_EMAIL="hoge@mail.com"
   export MAPILLARY_PASSWORD="password"
-  export MAPILLARY_USERNAME="hayashi"
-  export MAPILLARY_PERMISSION_HASH="eyJleHBpcmFiMjAyMC....F1dfQ=="
-  export MAPILLARY_SIGNATURE_HASH="SwRGN.....GI="
+  export MAPILLARY_USERNAME="yourname"
+  export MAPILLARY_PERMISSION_HASH="....=="
+  export MAPILLARY_SIGNATURE_HASH="....="
   
   python /source/mapillary_tools/python/remove_duplicates.py /mnt/mapi/img/m/ /mnt/mapi/img/duplicate/
   python /source/mapillary_tools/python/upload_with_preprocessing.py /mnt/mapi/img/m/
