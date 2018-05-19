@@ -299,7 +299,16 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 
 ----
 
-## 7. Mapillary-tools を使って*Mapillary*に大量アップ
+## 8. 不要なイメージを削除する
+
+Mapillary-toolsでも重複画像を削除する機能は有りますが、絶対にアップしたくないヤバイ画像や信号待ち等の画像は手動で削除してしまいましょう。
+
+  ![JOSM07](JOSM07.png)
+
+
+----
+
+## 9. Mapillary-tools を使って*Mapillary*に大量アップ
 
 ```
 /home/yuu/Desktop
