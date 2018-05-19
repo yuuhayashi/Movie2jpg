@@ -290,7 +290,12 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2j
 8. *AdjustTime2* の撮影時刻設定画面に戻って、設定時間に「５秒」加えた値を設定して、再実行します  
   ![JOSM05](JOSM05.png)
 
-9. 
+9. 再度、JOSMを起動して「EXIFが作成されたフォルダ``/mapi/gpx/XXX`」内のすべてのファイルをドラッグ＆ドロップする  
+  ![JOSM01](JOSM01.png)
+
+10. 交差点近傍の写真の位置を再度確認します。  
+  ![JOSM06](JOSM06.png)
+
 
 ----
 
