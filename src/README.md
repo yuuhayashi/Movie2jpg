@@ -310,6 +310,25 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ## 9. Mapillary-tools を使って*Mapillary*に一括大量アップロード
 
+![upload to Mapillary](upload.png)
+
+元ネタは[ここ](https://qiita.com/kudarisenmon/items/3c4906bfeed2010e600d)から引用しています
+ * [mapillary_tools を使ってアクションカムで撮った写真をMapillaryに投稿する](https://qiita.com/kudarisenmon/items/3c4906bfeed2010e600d)
+
+ここでは Docker を使った方法を紹介します。
+
+### mapillary_tools のインストールとビルド
+
+  **Docker 'mapillary_tools'**
+
+初回に限りDockerのインストールとビルドが必要です。
+
+こちら → [MAPILLARY_TOOLS_BUILD](MAPILLARY_TOOLS_BUILD.md) を参考にしてインストールとビルドを行ってください。
+
+ * [mapillary_tools](https://github.com/mapillary/mapillary_tools)
+
+
+
 ```
 ~/
 ┃
