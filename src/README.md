@@ -66,11 +66,9 @@
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 ```
-  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
-
- * フォルダ `~/Movie2jpg-master/mapi/Movie` に MP4ファイルを配置する。
-
- * フォルダ `~/Movie2jpg-master/mapi/Movie` に `Movie2jpg.ini` を配置する。
+フォルダ `~/Movie2jpg-master/mapi/Movie` に 
+ * **動画(MP4)**ファイルを配置する。
+ * `Movie2jpg.ini` を配置する。
 
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
 ```
@@ -82,22 +80,13 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 ### 2.3 静止画の切り出し処理を実行 - Docker run
 
-実行:   
-
-#### Linuxの場合
-  ```
-  cd ~/Movie2jpg-master
-  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
-
-  ```
-
-#### Windowsの場合
+**実行**:   
   ```
   cd ~/Movie2jpg-master
   docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
-  実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「mp4」ファイルごとに
+  実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「動画(MP4)」ファイルごとに
 
   `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
 
@@ -128,7 +117,6 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 ```
-  ~'Windows'の場合は「`~`」を「`/c`」に読み替えてください~
 
 
 -----
