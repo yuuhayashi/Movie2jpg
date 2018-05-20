@@ -54,13 +54,13 @@
 撮影した動画ファイルを所定の場所に配置します。
 
 ```
-~/
+~/Movie2jpg-master
 ┃
-┗━ ~/mapi
+┗━ ~/Movie2jpg-master/mapi
 　　　┃
-　　　┣━ ~/mapi/img
+　　　┣━ ~/Movie2jpg-master/mapi/img
 　　　┃
-　　　┗━ ~/mapi/Movie
+　　　┗━ ~/Movie2jpg-master/mapi/Movie
 　　　　　　┃
 　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
@@ -68,9 +68,9 @@
 ```
   'Windows'の場合は「`~`」を「`/c`」に読み替えてください
 
- * フォルダ `~/mapi/Movie` に MP4ファイルを配置する。
+ * フォルダ `~/Movie2jpg-master/mapi/Movie` に MP4ファイルを配置する。
 
- * フォルダ `~/mapi/Movie` に `Movie2jpg.ini` を配置する。
+ * フォルダ `~/Movie2jpg-master/mapi/Movie` に `Movie2jpg.ini` を配置する。
 
 [Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
 ```
