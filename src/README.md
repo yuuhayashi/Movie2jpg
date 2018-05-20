@@ -86,31 +86,31 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 #### Linuxの場合
   ```
-  cd
+  cd ~/Movie2jpg-master
   docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
   ```
 
 #### Windowsの場合
   ```
-  cd
+  cd ~/Movie2jpg-master
   docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
-  実行すると、「Movie2jpg」が起動され、`~/mapi/Movie`フォルダ内の「mp4」ファイルごとに
+  実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「mp4」ファイルごとに
 
   `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
 
   が内部で実行されます。
 
-  完了すると、`~/mapi/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
+  完了すると、`~/Movie2jpg-master/mapi/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
-~/
+~/Movie2jpg-master
 ┃
-┗━ ~/mapi
+┗━ ~/Movie2jpg-master/mapi
 　　　┃
-　　　┣━ ~/mapi/img
+　　　┣━ ~/Movie2jpg-master/mapi/img
 　　　┃　　┣━ XXXX
 　　　┃　　┃　　┣━ 00001.jpg
 　　　┃　　┃　　┣━ 00002.jpg
@@ -123,12 +123,12 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 　　　┃　　　　　┣━     :
 　　　┃　　　　　┗━ 02408.jpg
 　　　┃
-　　　┗━ ~/mapi/Movie
+　　　┗━ ~/Movie2jpg-master/mapi/Movie
 　　　　　　┃
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 ```
-  'Windows'の場合は「`~`」を「`/c`」に読み替えてください
+  ~'Windows'の場合は「`~`」を「`/c`」に読み替えてください~
 
 
 -----
@@ -183,7 +183,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 コマンドラインの例：
 ```
-cd
+cd ~/Movie2jpg-master
 docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
