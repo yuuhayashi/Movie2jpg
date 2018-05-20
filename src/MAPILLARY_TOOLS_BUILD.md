@@ -66,7 +66,6 @@
   
   # append
   RUN mkdir /mnt/mapi
-  COPY ./mapillary.sh /root
   ```
 
 5. `Terminal` に下記コマンドを打ち込む(build)
