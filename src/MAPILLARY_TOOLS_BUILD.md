@@ -58,14 +58,14 @@
   RUN \
     pip install --upgrade pip
   
-  RUN mkdir /mnt/mapi
-  
   COPY . /source/mapillary_tools
   
   WORKDIR /source/mapillary_tools
   
   RUN pip install -r python/requirements.txt
   
+  # append
+  RUN mkdir /mnt/mapi
   COPY ./mapillary.sh /root
   ```
 
