@@ -125,7 +125,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 生成された連番JPEGファイルに撮影時刻を書き込む必要が有ります。
 
-私の[自作](../LICENSE.txt)したソフトウェア **Movie2jpg.jar** を使って連番JPEGの*ファイル更新日時*を撮影時刻に変換する方法を紹介します。
+私の[自作](../LICENSE.txt)したソフトウェア **Restamp(Movie2jpg)** を使って連番JPEGの*ファイル更新日時*を撮影時刻に変換する方法を紹介します。
 
 ![before RETIME](retime.png)
 
@@ -155,7 +155,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 コマンドライン：
 
- **冒頭**「`docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
+ **冒頭**「`docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
   固定
 
  **ディレクトリ**  
@@ -172,7 +172,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 コマンドラインの例：
 ```
 cd ~/Movie2jpg-master
-docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
 ターミナルにコマンドラインを貼り付けて実行すると、JPEGファイルのファイル更新日時が「撮影日時」に書き換わります。
