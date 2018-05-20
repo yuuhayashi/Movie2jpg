@@ -1,15 +1,15 @@
 [タイムラプス動画ファイルから静止画を生成する](README.md)
 ----
 
-# Docker 'haya4/movie2jpg'
+# 2.1 Docker 'haya4/movie2jpg'
 
-## Dockerのインストール
+## 2.1.1 Dockerのインストール
 
  * ここでは [Docker]()についての説明は省略します。各自ネットで調べてください。
  * **Docker**をインストールしてください。インストール手順はネットで調べてください。
 
 
-## dockerイメージの build
+## 2.1.2 dockerイメージの build
 
 1. [Movie2jpg-master.zip](/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
 フォルダ `Movie2jpg-master` が作成される
