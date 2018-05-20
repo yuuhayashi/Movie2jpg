@@ -20,7 +20,7 @@
 
 2. 作成されたフォルダ `mapillary_tools-master` をホームディレクトリ直下に移動する
 
-3. `~/mapillary_tools-master/mapillary.sh` をテキストエディタで開いて、下記のように書き換えてください  
+3. テキストエディタを使って下記の内容の`~/mapillary_tools-master/mapillary.sh` ファイルを作成してください    
   ```
   export MAPILLARY_EMAIL="hoge@mail.com"
   export MAPILLARY_PASSWORD="password"
