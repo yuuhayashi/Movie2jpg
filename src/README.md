@@ -155,19 +155,23 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 コマンドライン：
 
- **冒頭**「`docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
-  固定
+**冒頭**  
+   「`docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
+  固定文字列
 
- **ディレクトリ**  
-  連番ファイルが格納されたディレクトリ
+**ディレクトリ**  
+  連番ファイルが格納されたディレクトリ  
+  例：「`./img/20180407_135053A `」
 
- **最初の方のファイル名** と **撮影日時**  
+**最初の方のファイル名** と **撮影日時**  
   `ファイル名` `撮影日時`  
-  「撮影日時」は書式 `yyyy-MM-dd'T'HH:mm:ss'Z'` として９時間前の時刻を入力する(例: `2018-05-13T04:29:16`)   
+  「撮影日時」は書式 `yyyy-MM-dd'T'HH:mm:ss'Z'` として９時間前の時刻を入力する(例: `2018-05-13T04:29:16`)  
+  例：「`00239.jpg 2018-04-07T05:54:47Z `」
 
- **最後の方のファイル名** と **撮影日時**  
+**最後の方のファイル名** と **撮影日時**  
   `ファイル名` `撮影日時`  
-  「撮影日時」は書式 `yyyy-MM-dd'T'HH:mm:ss'Z'` として９時間前の時刻を入力する(例: `2018-05-13T04:29:16`)   
+  「撮影日時」は書式 `yyyy-MM-dd'T'HH:mm:ss'Z'` として９時間前の時刻を入力する(例: `2018-05-13T04:29:16`)  
+  例：「`01725.jpg 2018-04-07T05:19:36Z `」
 
 コマンドラインの例：
 ```
