@@ -71,10 +71,9 @@
 
 5. `Terminal` に下記コマンドを打ち込む(build)
   ```
-  mkdir ~/mapi
-  mkdir ~/mapi/Movie
-  mkdir ~/mapi/img
   cd ~/mapillary_tools-master
+  mkdir mapi
+  mkdir mapi/img
   docker build -t mapillary_tools .
   ```
   小一時間かかります
