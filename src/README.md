@@ -324,23 +324,24 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 ### 9.2 'mapillary_tools'の設定
 
 ```
-~/
+~/mapillary_tools-master
 ┃
-┗━ ~/mapi
+┗━ ~/mapillary_tools-master/mapi
 　　　┃
-　　　┗━ ~/mapi/img
-　　　　　　┣━ ~/mapi/img/m
+　　　┗━ ~/mapillary_tools-master/mapi/img
+　　　　　　┃
+　　　　　　┣━ ~/mapillary_tools-master/mapi/img/m
 　　　　　　┃　　┣━ 00001.jpg
 　　　　　　┃　　┣━ 00002.jpg
 　　　　　　┃　　┣━     :
 　　　　　　┃　　┗━ 01861.jpg
 　　　　　　┃
-　　　　　　┗━ ~/mapi/img/duplicate
+　　　　　　┗━ ~/mapillary_tools-master/mapi/img/duplicate
 ```
- * 「~/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
-  「`/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/mapi/img/m」フォルダに変更する
+ * 「~/mapillary_tools-master/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
+  「`/mapillary_tools-master/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/mapillary_tools-master/mapi/img/m」フォルダに変更する
 
- * 「~/mapi/img/duplicate」フォルダに重複ファイルが置かれる
+ * 「~/mapillary_tools-master/mapi/img/duplicate」フォルダに重複ファイルが置かれる
 
 
 ### 9.3 Docker 'mapillary_tools'の実行
