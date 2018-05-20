@@ -348,7 +348,7 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ```
 cd ~/mapillary_tools-master
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw mapillary_tools /bin/bash /root/mapillary.sh
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw mapillary_tools /bin/bash mapillary.sh
 docker run -it -v $(pwd)/mapi:/mnt/mapi:rw mapillary_tools chmod 777 -R /mnt/mapi
 ```
 
