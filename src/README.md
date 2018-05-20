@@ -87,14 +87,14 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 #### Linuxの場合
   ```
   cd ~/Movie2jpg-master
-  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
 
   ```
 
 #### Windowsの場合
   ```
   cd ~/Movie2jpg-master
-  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
   実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「mp4」ファイルごとに
