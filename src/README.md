@@ -365,3 +365,6 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg chmod 777 -R /mnt/map
   ```
 ![実行結果](mapiup.png)
 
+これで Mapillary へのアップロードが完了しました。
+
+調子にのってガバガバアップロードしてると契約しているインターネットプロパイダから帯域制限を食らうので注意してください。
