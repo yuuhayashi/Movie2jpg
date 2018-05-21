@@ -289,7 +289,8 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movi
   ![JOSM01](JOSM01.png)
 
 10. 交差点近傍の写真の位置を再度確認します。  
-  ![JOSM06](JOSM06.png)
+  ![JOSM06](JOSM06.png)  
+  * 横断歩道のゼブラが足元にあることを確認できます。
 
 
 ----
@@ -298,7 +299,8 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movi
 
 Mapillary-toolsでも重複画像を削除する機能は有りますが、絶対にアップしたくないヤバイ画像や信号待ち等の画像は手動で削除してしまいましょう。
 
-  ![JOSM07](JOSM07.png)
+  ![JOSM07](JOSM07.png)  
+  * この例では高架下で信号待ちをしたせいでGPSの奇跡が大きくズレています。停止中の画像はすべて削除してしまいましょう。
 
 
 ----
@@ -319,7 +321,7 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 'mapillary_tools'は Dockerイメージ 'haya4/Movie2jpg' に含まれています。
 初回に限り[mapillary.sh](/gitbucket/yuu/Movie2jpg/blob/master/mapillary.sh)のセットアップが必要です。
 
-こちら → [MAPILLARY_SETUP(MAPILLARY_SETUP.md) を参考にしてインストールとビルドを行ってください。
+こちら → [MAPILLARY_SETUP](MAPILLARY_SETUP.md) を参考にしてインストールとビルドを行ってください。
 
 ### 9.2 'mapillary_tools'の設定。。
 
