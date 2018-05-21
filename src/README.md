@@ -361,3 +361,5 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg chmod 777 -R /mnt/map
   #     :
   #
   ```
+![実行結果](mapiup.png)
+
