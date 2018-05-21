@@ -316,44 +316,44 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
   **Docker 'mapillary_tools'**
 
-初回に限りDockerのインストールとビルドが必要です。
+'mapillary_tools'は Docker image 'haya4/Movie2jpg' に含まれています。
+初回に限り[mapillary.sh](/gitbucket/yuu/Movie2jpg/blob/master/mapillary.sh)のセットアップが必要です。
 
-こちら → [MAPILLARY_TOOLS_BUILD](MAPILLARY_TOOLS_BUILD.md) を参考にしてインストールとビルドを行ってください。
-
+こちら → [MAPILLARY_SETUP(MAPILLARY_SETUP.md) を参考にしてインストールとビルドを行ってください。
 
 ### 9.2 'mapillary_tools'の設定
 
 ```
-~/mapillary_tools-master
+~/movie2jpg-master
 ┃
-┗━ ~/mapillary_tools-master/mapi
+┗━ ~/mamovie2jpgaster/mapi
 　　　┃
-　　　┗━ ~/mapillary_tools-master/mapi/img
+　　　┗━ ~/mamovie2jpgaster/mapi/img
 　　　　　　┃
-　　　　　　┣━ ~/mapillary_tools-master/mapi/img/m
+　　　　　　┣━ ~/mamovie2jpgaster/mapi/img/m
 　　　　　　┃　　┣━ 00001.jpg
 　　　　　　┃　　┣━ 00002.jpg
 　　　　　　┃　　┣━     :
 　　　　　　┃　　┗━ 01861.jpg
 　　　　　　┃
-　　　　　　┗━ ~/mapillary_tools-master/mapi/img/duplicate
+　　　　　　┗━ ~/mamovie2jpgaster/mapi/img/duplicate
 ```
- * 「~/mapillary_tools-master/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
-  「`/mapillary_tools-master/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/mapillary_tools-master/mapi/img/m」フォルダに変更する
+ * 「~/movie2jpg-master/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
+  「`/movie2jpg-master/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/movie2jpg-master/mapi/img/m」フォルダに変更する
 
- * 「~/mapillary_tools-master/mapi/img/duplicate」フォルダに重複ファイルが置かれる
+ * 「~/movie2jpg-master/mapi/img/duplicate」フォルダに重複ファイルが置かれる
 
 
 ### 9.3 Docker 'mapillary_tools'の実行
 
 ```
-cd ~/mapillary_tools-master
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw mapillary_tools /bin/bash mapillary.sh
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw mapillary_tools chmod 777 -R /mnt/mapi
+cd ~/movie2jpg-master
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg /bin/bash /root/mapillary.sh
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg chmod 777 -R /mnt/mapi
 ```
 
   ```
-  -v ~/mapi:/mnt/mapi
+  -v $(pwd)/mapi:/mnt/mapi:rw
     PCのフォルダ(~/mapi)をコンテナのフォルダ(/mnt/mapi)にマウントする
   
   # cd /root
