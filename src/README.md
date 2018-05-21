@@ -226,12 +226,12 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movi
 8. 既に撮影時刻が設定されているので、そのまま「次へ」  
   ![Screenshot05](Screenshot05.png)  
 
-9. *GPXフォルダ* に「``/mapi/gpx`」をセットして、「次へ」  
+9. *GPXフォルダ* に「`~/Movie2jpg-master/mapi/gpx`」をセットして、「次へ」  
   ![Screenshot06](Screenshot06.png)  
   フォルダを設定した時は、そのフォルダ内のすべてのGPXファイルをひも付けの対象とします。  
   GPXファイルを指定した時は、指定されたGPXファイルのみひも付けの対象とします。
 
-10. *書き出しフォルダ* に「``/mapi/gpx`」をセット  
+10. *書き出しフォルダ* に「`~/Movie2jpg-master/mapi/gpx`」をセット  
   ![Screenshot07](Screenshot07.png)  
   「EXIFの変換をする」にチェックをつける
 
@@ -241,19 +241,19 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movi
 
 12. 処理が終わったら「閉じる」ボタン  
   ```
-  ~/
+  ~/Movie2jpg-master
   ┃
-  ┗━ ~/mapi
+  ┗━ ~/Movie2jpg-master/mapi
   　　　┃
-  　　　┗━ ~/mapi/gpx
+  　　　┗━ ~/Movie2jpg-master/mapi/gpx
   　　　　　　┃
-  　　　　　　┗━ ~/mapi/gpx/XXX
+  　　　　　　┗━ ~/Movie2jpg-master/mapi/gpx/XXX
   　　　　　　　　　┣━ 00001.jpg
   　　　　　　　　　┣━ 00002.jpg
   　　　　　　　　　┣━     :
   　　　　　　　　　┗━ 01861.jpg
   ```
-  EXiFが付与されたファイルが ``/mapi/gpx` に作成されます。
+  EXiFが付与されたファイルが `~/Movie2jpg-master/mapi/gpx` に作成されます。
 
 
 ----
@@ -316,38 +316,38 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
   **Docker 'mapillary_tools'**
 
-'mapillary_tools'は Docker image 'haya4/Movie2jpg' に含まれています。
+'mapillary_tools'は Dockerイメージ 'haya4/Movie2jpg' に含まれています。
 初回に限り[mapillary.sh](/gitbucket/yuu/Movie2jpg/blob/master/mapillary.sh)のセットアップが必要です。
 
 こちら → [MAPILLARY_SETUP(MAPILLARY_SETUP.md) を参考にしてインストールとビルドを行ってください。
 
-### 9.2 'mapillary_tools'の設定
+### 9.2 'mapillary_tools'の設定。。
 
 ```
-~/movie2jpg-master
+~/Movie2jpg-master
 ┃
-┗━ ~/mamovie2jpgaster/mapi
+┗━ ~/Movie2jpg-master/mapi
 　　　┃
-　　　┗━ ~/mamovie2jpgaster/mapi/img
+　　　┗━ ~/Movie2jpg-master/mapi/img
 　　　　　　┃
-　　　　　　┣━ ~/mamovie2jpgaster/mapi/img/m
+　　　　　　┣━ ~/Movie2jpg-master/mapi/img/m
 　　　　　　┃　　┣━ 00001.jpg
 　　　　　　┃　　┣━ 00002.jpg
 　　　　　　┃　　┣━     :
 　　　　　　┃　　┗━ 01861.jpg
 　　　　　　┃
-　　　　　　┗━ ~/mamovie2jpgaster/mapi/img/duplicate
+　　　　　　┗━ ~/Movie2jpg-master/mapi/img/duplicate
 ```
- * 「~/movie2jpg-master/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
-  「`/movie2jpg-master/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/movie2jpg-master/mapi/img/m」フォルダに変更する
+ * 「~/Movie2jpg-master/mapi/img/m」フォルダにMapillaryにアップしたいJPEGファイルを置く  
+  (「~/Movie2jpg-master/mapi/gpx」に作成されたEXiFが付与されたファイルが入ったフォルダを「~/Movie2jpg-master/mapi/img/m」フォルダに変更する)
 
- * 「~/movie2jpg-master/mapi/img/duplicate」フォルダに重複ファイルが置かれる
+ * 「~/Movie2jpg-master/mapi/img/duplicate」フォルダに重複ファイルが置かれる
 
 
 ### 9.3 Docker 'mapillary_tools'の実行
 
 ```
-cd ~/movie2jpg-master
+cd ~/Movie2jpg-master
 docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg /bin/bash /root/mapillary.sh
 docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg chmod 777 -R /mnt/mapi
 ```
