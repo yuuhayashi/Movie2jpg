@@ -24,7 +24,7 @@
   mkdir mapi/Movie
   mkdir mapi/img
   cp Movie2jpg.ini mapi/Movie
-  docker build -t haya4/movie2jpg .
+  docker build -t movie2jpg .
   ```
   小一時間かかります
 
