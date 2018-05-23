@@ -35,7 +35,7 @@
 2. `Terminal` に下記コマンドを打ち込む(build)
   ```
   cd ~/Movie2jpg-master
-  docker build -t haya4/movie2jpg .
+  docker build -t movie2jpg .
   ```
 
 
