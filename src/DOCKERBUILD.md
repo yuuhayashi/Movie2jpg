@@ -20,9 +20,9 @@
   ```
   cd ~
   cd $(pwd)/Movie2jpg-master
-  mkdir mapi
-  mkdir mapi/Movie
-  mkdir mapi/img
+  mkdir -p mapi
+  mkdir -p mapi/Movie
+  mkdir -p mapi/img
   cp Movie2jpg.ini mapi/Movie
   docker build -t movie2jpg .
   ```
