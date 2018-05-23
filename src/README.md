@@ -81,7 +81,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 **実行**:   
   ```
   cd ~/Movie2jpg-master
-  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
   ```
 
   実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「動画(MP4)」ファイルごとに
@@ -154,7 +154,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 コマンドライン：
 
 (1) **冒頭**  
-   「`docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
+   「`docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp `」  
   固定文字列
 
 (2) **ディレクトリ**  
@@ -174,7 +174,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 コマンドラインの例：
 ```
 cd ~/Movie2jpg-master
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
 
 ターミナルにコマンドラインを貼り付けて実行すると、JPEGファイルのファイル更新日時が「撮影日時」に書き換わります。
@@ -348,8 +348,8 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ```
 cd ~/Movie2jpg-master
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg /bin/bash /root/mapillary.sh
-docker run -it -v $(pwd)/mapi:/mnt/mapi:rw haya4/movie2jpg chmod 777 -R /mnt/mapi
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg /bin/bash /root/mapillary.sh
+docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg chmod 777 -R /mnt/mapi
 ```
 
   ```
