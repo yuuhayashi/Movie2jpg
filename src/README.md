@@ -31,7 +31,7 @@
 
 ## 2. 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
 
-![Movie to JPEG](movie2jpeg.png)
+![Movie to JPEG](img/movie2jpeg.png)
 
 撮影された動画ファイルから１秒間隔の静止画を取り出します。
 
@@ -125,7 +125,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 私の[自作](../LICENSE.txt)したソフトウェア **Restamp(Movie2jpg)** を使って連番JPEGの*ファイル更新日時*を撮影時刻に変換する方法を紹介します。
 
-![before RETIME](retime.png)
+![before RETIME](img/retime.png)
 
 ### 3.1 仕組み／原理
 
@@ -133,7 +133,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
  * ２枚の中間にあるファイルの数を数えて、各ファイルの撮影間隔を精確に算出します。
  * 算出された撮影間隔と２枚の撮影時刻を元に、他のすべての撮影時刻を算出し、JPEGファイルのファイル更新日時(updatetime)を撮影時刻に書き換えます。
 
-![after RETIME](retime2.png)
+![after RETIME](img/retime2.png)
 
   もし、カメラの時刻合わせに失敗していたり、時間ウォーターマークを設定し忘れた場合は、[撮影時刻推定方法](UPDATETIME.md) を参照してください。
 
@@ -145,7 +145,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
 1. `img`フォルダの画像を画像ビューワなどで開き、画像のウォーターマークを読み取る(最初の方のファイルを選択する)
 
-  ![TimeWaterMark01](TimeWaterMark01.png)
+  ![TimeWaterMark01](img/TimeWaterMark01.png)
 
 2. 同様にして、もうひとつの別の画像のウォーターマークを読み取る(最後の方のファイルを選択する)
 
@@ -171,8 +171,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
   「撮影日時」は書式 `yyyy-MM-dd'T'HH:mm:ss'Z'` として９時間前の時刻を入力する(例: `2018-05-13T04:29:16`)  
   例：「`01725.jpg 2018-04-07T05:19:36Z `」
 
-コマンドラインの例：
-```
+```ruby:コマンドライン
 cd ~/Movie2jpg-master
 docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar osm.jp.gpx.Restamp ./img/20180407_135053A 00239.jpg 2018-04-07T05:54:47Z 01725.jpg 2018-04-07T05:19:36Z
 ```
@@ -184,13 +183,13 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.
 
 ## 4. GPSログとJPEGの更新日付を付きあわせてJPEGのEXiFに位置情報を書き込む
 
-![AdjustGPX](adjustGPX1.png)
+![AdjustGPX](img/adjustGPX1.png)
 
 **撮影日時**がファイルの更新日時に設定されると、GPXファイルとファイル更新日時を付きあわせてJPEGのEXIFに書き込む方法は無数に有ります。
 
 使い慣れたツールを使って JPEGファイルのEXiF情報に位置情報を書き込んでください。
 
-![AdjustGPX](adjustGPX2.png)
+![AdjustGPX](img/adjustGPX2.png)
 
 
 ### 4.1 AdjustTime2を使う
@@ -212,29 +211,29 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.
   ```
 
 5. *AdjustTime2* の画面が開いたら、「選択」ボタンを押して連番JPEGファイルが格納されているフォルダを**対象フォルダ**フィールドにセットする → 「次へ」  
-  ![Screenshot01](Screenshot01.png)
+  ![Screenshot01](img/Screenshot01.png)
 
 6. 「選択」ボタンを押して任意のファイルを選択する → 「基準時刻画像」にファイルが選択される  
-  ![Select file](Screenshot03.png)  
+  ![Select file](img/Screenshot03.png)  
    → 「次へ」
 
 7. そのまま「次へ」  
-  ![Screenshot04](Screenshot04.png)  
+  ![Screenshot04](img/Screenshot04.png)  
 
 8. 既に撮影時刻が設定されているので、そのまま「次へ」  
-  ![Screenshot05](Screenshot05.png)  
+  ![Screenshot05](img/Screenshot05.png)  
 
 9. *GPXフォルダ* に「`~/Movie2jpg-master/mapi/gpx`」をセットして、「次へ」  
-  ![Screenshot06](Screenshot06.png)  
+  ![Screenshot06](img/Screenshot06.png)  
   フォルダを設定した時は、そのフォルダ内のすべてのGPXファイルをひも付けの対象とします。  
   GPXファイルを指定した時は、指定されたGPXファイルのみひも付けの対象とします。
 
 10. *書き出しフォルダ* に「`~/Movie2jpg-master/mapi/gpx`」をセット  
-  ![Screenshot07](Screenshot07.png)  
+  ![Screenshot07](img/Screenshot07.png)  
   「EXIFの変換をする」にチェックをつける
 
 11. 「処理実行」ボタン  
-  ![Screenshot08](Screenshot08.png)  
+  ![Screenshot08](img/Screenshot08.png)  
   「実行」ホタン
 
 12. 処理が終わったら「閉じる」ボタン  
@@ -269,25 +268,25 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.
 3. **[JOSM](https://josm.openstreetmap.de/)**を起動する
 
 4. JOSMに「EXIFが作成されたフォルダ``/mapi/gpx/XXX`」内のすべてのファイルをドラッグ＆ドロップする  
-  ![JOSM01](JOSM01.png)
+  ![JOSM01](img/JOSM01.png)
 
 5. JOSMの[メニュー]→[画像]→[お好みの背景画像]を選びます。この例では「Bing航空画像」を選んでいます  
-  ![JOSM02](JOSM02.png)
+  ![JOSM02](img/JOSM02.png)
 
 6. ルート履歴から**交差点で曲がっている**箇所を探します。  
-  ![JOSM03](JOSM03.png)
+  ![JOSM03](img/JOSM03.png)
  
 7. 交差点近傍の写真からGPSロガーとのズレを確認します。この例ではカメラ側の時間が５秒遅れています。  
-  ![JOSM04](JOSM04.png)
+  ![JOSM04](img/JOSM04.png)
 
 8. *AdjustTime2* の撮影時刻設定画面に戻って、設定時間に「５秒」加えた値を設定して、再実行します  
-  ![JOSM05](JOSM05.png)
+  ![JOSM05](img/JOSM05.png)
 
 9. 再度、JOSMを起動して「EXIFが作成されたフォルダ``/mapi/gpx/XXX`」内のすべてのファイルをドラッグ＆ドロップする  
-  ![JOSM01](JOSM01.png)
+  ![JOSM01](img/JOSM01.png)
 
 10. 交差点近傍の写真の位置を再度確認します。  
-  ![JOSM06](JOSM06.png)  
+  ![JOSM06](img/JOSM06.png)  
   * 横断歩道のゼブラが足元にあることを確認できます。
 
 
@@ -297,7 +296,7 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.
 
 Mapillary-toolsでも重複画像を削除する機能は有りますが、絶対にアップしたくないヤバイ画像や信号待ち等の画像は手動で削除してしまいましょう。
 
-  ![JOSM07](JOSM07.png)  
+  ![JOSM07](img/JOSM07.png)  
   * この例では高架下で信号待ちをしたせいでGPSの奇跡が大きくズレています。停止中の画像はすべて削除してしまいましょう。
 
 
@@ -305,7 +304,7 @@ Mapillary-toolsでも重複画像を削除する機能は有りますが、絶�
 
 ## 9. 'Mapillary-tools'を使って*Mapillary*に一括大量アップロード
 
-![upload to Mapillary](upload.png)
+![upload to Mapillary](img/upload.png)
 
 元ネタは[ここ](https://qiita.com/kudarisenmon/items/3c4906bfeed2010e600d)から引用しています
  * [mapillary_tools を使ってアクションカムで撮った写真をMapillaryに投稿する](https://qiita.com/kudarisenmon/items/3c4906bfeed2010e600d)
@@ -361,7 +360,7 @@ docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg chmod 777 -R /mnt/mapi
   #     :
   #
   ```
-![実行結果](mapiup.png)
+![実行結果](img/mapiup.png)
 
 これで Mapillary へのアップロードが完了しました。
 
