@@ -11,7 +11,7 @@
 
 ## 2.1.2 dockerイメージの build
 
-1. [Movie2jpg-master.zip](/gitbucket/yuu/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
+1. [Movie2jpg-master.zip](https://github.com/yuuhayashi/Movie2jpg/archive/master.zip) をダウンロードして解凍する  
 フォルダ `Movie2jpg-master` が作成される
 
 2. 作成されたフォルダ `Movie2jpg-master` をホームディレクトリ直下に移動する
@@ -31,7 +31,7 @@
 
 ----
 
-[Dockerfile](/gitbucket/yuu/Movie2jpg/blob/master/Dockerfile)
+[Dockerfile](https://github.com/yuuhayashi/Movie2jpg/blob/master/Dockerfile)
 
 ----
 [タイムラプス動画ファイルから静止画を生成する](README.md)
