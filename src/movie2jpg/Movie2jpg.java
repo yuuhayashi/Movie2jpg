@@ -1,9 +1,15 @@
 package movie2jpg;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -76,9 +82,39 @@ public class Movie2jpg {
             outDir.mkdir();
         }
         
-        String rate = this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE);
+        String commandLine = String.format("ffprobe %s", mp4File.getAbsolutePath());
+        System.out.println("# " + commandLine);
+
+        Command command1 = new Command();
+        command1.setCmd(commandLine);
+        command1.setWorkDir(workDir);
+        command1.execCommand(workDir);
+        File outFile = new File(workDir, "stderr.txt");
+        InputStream is = new FileInputStream(outFile);
+        
+        String fpsStr = null;
+        try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, "utf-8"))) {
+            String line;
+            while((line = rd.readLine()) != null) {
+                if (line.trim().startsWith("Stream #")) {
+                    StringTokenizer st = new StringTokenizer(line, ",");
+                    while (st.hasMoreTokens()) {
+                        String token = st.nextToken();
+                        if (token.endsWith(" fps")) {
+                            fpsStr = token.substring(0, token.length()-4).trim();
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // String rate = this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE);
         String dest = "img/"+ name +"/%05d.jpg";
-        String commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -vf fps=%s %s", mp4File.getAbsolutePath(), rate, dest);
+        if (fpsStr == null) {
+            fpsStr = "30";
+        }
+        commandLine = String.format("ffmpeg -ss 0  -i %s -f image2 -r %s %s", mp4File.getAbsolutePath(), fpsStr, dest);
         System.out.println("# " + commandLine);
         
         Command command = new Command();
@@ -112,7 +148,13 @@ public class Movie2jpg {
     class Mp4FileFilter implements FilenameFilter {
         @Override
         public boolean accept(File dir, String name) {
-            return name.toUpperCase().matches(".*\\.MP4$");
+            if (name.toUpperCase().matches(".*\\.MP4$")) {
+                return true;
+            }
+            else if (name.toUpperCase().matches(".*\\.MOV$")) {
+                return true;
+            }
+            return false;
         }
     }
 }

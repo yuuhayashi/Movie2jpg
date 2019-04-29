@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package movie2jpg;
 
 import java.io.File;
-import java.util.ArrayList;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,9 +14,8 @@ import static org.junit.Assert.*;
  * @author yuu
  */
 public class Movie2jpgTest {
-    
-    public Movie2jpgTest() {
-    }
+    File imgdir = new File("img");
+    File dir = new File(imgdir, "FILE190428-121735F");
     
     @BeforeClass
     public static void setUpClass() {
@@ -33,40 +27,26 @@ public class Movie2jpgTest {
     
     @Before
     public void setUp() {
+        
     }
     
     @After
     public void tearDown() {
+        dir.deleteOnExit();
+        imgdir.deleteOnExit();
     }
 
     @Test
     public void testMain() throws Exception {
-        System.out.println("main");
-        ArrayList<String> strArray = new ArrayList();
-        strArray.add("./Movie/Movie2jpg.ini");
-        String[] args = strArray.toArray(new String[1]);
-        Movie2jpg.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Movie2jpg ins = new Movie2jpg(new File("Movie", "Movie2jpg.ini"));
+        ins.proc();
+        assertThat(imgdir.exists(), is(true));
+        assertThat(dir.isDirectory(), is(true));
+        File[] filelist = dir.listFiles();
+        assertNotNull(filelist);
+        assertThat(filelist.length, is(109));
+        for (File file : filelist) {
+            assertThat(file.getName().endsWith(".jpg"), is(true));
+        }
     }
-
-    @Test
-    public void testProc() throws Exception {
-        System.out.println("proc");
-        Movie2jpg instance = null;
-        instance.proc();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testFfmpeg() throws Exception {
-        System.out.println("ffmpeg");
-        File mp4File = null;
-        Movie2jpg instance = null;
-        instance.ffmpeg(mp4File);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

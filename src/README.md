@@ -60,20 +60,11 @@
 　　　┃
 　　　┗━ ~/Movie2jpg-master/mapi/Movie
 　　　　　　┃
-　　　　　　┣━ Movie2jpg.ini
 　　　　　　┣━ XXXX.mp4
 　　　　　　┗━ YYYY.mp4
 ```
 フォルダ `~/Movie2jpg-master/mapi/Movie` に 
  * **動画(MP4)**ファイルを配置する。
- * `Movie2jpg.ini` を配置する。
-
-[Movie2jpg.ini](/gitbucket/yuu/Movie2jpg/blob/master/Movie2jpg.ini) の設定例  
-```
-[FFMPEG]
-FFMPEG_OUTPUT_FRAME_RATE=30
-```
-  - 1.0秒間隔で撮影した場合はFFMPEG_OUTPUT_FRAME_RATE=30 (fps=30) とすると1.0間隔の静止画が取り出せる
 
 
 ### 2.3 静止画の切り出し処理を実行 - Docker run
@@ -86,7 +77,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 
   実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「動画(MP4)」ファイルごとに
 
-  `ffmpeg -ss 0 -i $(mp4 file) -f image2 -vf fps=$(FFMPEG_OUTPUT_FRAME_RATE) $(output file)`
+  `ffmpeg -ss 0 -i ./mapi/Movie/$(movie-file) -r $(fps) ./mapi/img/$(movie-file)/%05d.jpg`
 
   が内部で実行されます。
 
@@ -112,7 +103,7 @@ FFMPEG_OUTPUT_FRAME_RATE=30
 　　　┃
 　　　┗━ ~/Movie2jpg-master/mapi/Movie
 　　　　　　┃
-　　　　　　┣━ XXXX.mp4
+　　　　　　┣━ XXXX.mov
 　　　　　　┗━ YYYY.mp4
 ```
 
