@@ -38,7 +38,7 @@ public class Movie2jpgTest {
 
     @Test
     public void testMain() throws Exception {
-        Movie2jpg ins = new Movie2jpg(new File("Movie", "Movie2jpg.ini"));
+        Movie2jpg ins = new Movie2jpg();
         ins.proc();
         assertThat(imgdir.exists(), is(true));
         assertThat(dir.isDirectory(), is(true));

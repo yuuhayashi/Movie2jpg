@@ -8,7 +8,6 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.StringTokenizer;
 
 /**
@@ -23,25 +22,21 @@ public class Movie2jpg {
      */
     public static void main(String[] args) throws Exception {
         System.out.println("exp: java movie2jpg.Movie2jpg");
-        (new Movie2jpg(new File(args[0]))).proc();
+        (new Movie2jpg()).proc();
     }
     
     public File workDir = null;
     public File movieDir;
     public File imgDir;
-    public AppParams params;
     
     /**
      * 
-     * @param iniFile   "/mnt/osm/Movie/Movie2jpg.ini"
      * @throws java.io.IOException
      */
-    public Movie2jpg(File iniFile) throws IOException {
+    public Movie2jpg() throws IOException {
         workDir = new File(".");
         movieDir = new File(workDir, "Movie");      // './Movie'ディレクトリ
         imgDir = new File(workDir, "img");          // './img'ディレクトリ
-        this.params = new AppParams(iniFile);
-        System.out.println(" - param: "+ AppParams.FFMPEG_OUTPUT_FRAME_RATE +"="+ this.params.getProperty(AppParams.FFMPEG_OUTPUT_FRAME_RATE));
     }
     
     /**

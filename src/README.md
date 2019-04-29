@@ -72,12 +72,12 @@
 **実行**:   
   ```
   cd ~/Movie2jpg-master
-  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg ./Movie/Movie2jpg.ini
+  docker run -it -v $(pwd)/mapi:/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar:/root/commons-imaging-1.0-20170205.201009-115.jar movie2jpg.Movie2jpg
   ```
 
   実行すると、「Movie2jpg」が起動され、`~/Movie2jpg-master/mapi/Movie`フォルダ内の「動画(MP4)」ファイルごとに
 
-  `ffmpeg -ss 0 -i ./mapi/Movie/$(movie-file) -r $(fps) ./mapi/img/$(movie-file)/%05d.jpg`
+  `ffmpeg -ss 0 -i ./mapi/Movie/(movie-file) -r (fps) ./mapi/img/(movie-file)/%05d.jpg`
 
   が内部で実行されます。
 
