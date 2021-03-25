@@ -5,6 +5,9 @@ classes/
 sample/
 database/
 glassfish5/
+nbproject/
+dist/
+lib/
 
 # ============ #
 # Eclipse      #
