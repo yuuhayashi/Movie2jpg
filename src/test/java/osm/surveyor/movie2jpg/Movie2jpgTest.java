@@ -38,10 +38,7 @@ public class Movie2jpgTest {
 
     @Test
     public void testMain() throws Exception {
-        File work = new File("src/test/resources");
-        Movie2jpg ins = new Movie2jpg(work);
-        ins.setDestinationDir(new File(work, "img"));
-        ins.setSourceDir(new File(work, "Movie"));
+        Movie2jpg ins = new Movie2jpg();
         ins.proc();
         assertThat(imgdir.exists(), is(true));
         assertThat(dir.isDirectory(), is(true));
