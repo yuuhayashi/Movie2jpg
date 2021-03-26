@@ -1,9 +1,9 @@
-package movie2jpg;
+package osm.surveyor.movie2jpg;
 import java.io.*;
 
 public class Command
 {
-    public static boolean debug = false;
+    public static boolean debug = true;
     private java.lang.String cmd;    /** プロパティ cmd(実行するｺﾏﾝﾄﾞﾗｲﾝ)。 */
     private java.io.File workDir;   /** プロパティ workDir の値 */
     
@@ -30,8 +30,8 @@ public class Command
             process = Runtime.getRuntime().exec(getCmd(), null, getWorkDir());
         }
 
-        new StreamThread(process.getInputStream(), new File(workDir, "stdout.txt")).start();
-        new StreamThread(process.getErrorStream(), new File(workDir, "stderr.txt")).start();
+        new StreamThread(process.getInputStream(), new File(getWorkDir(), "stdout.txt")).start();
+        new StreamThread(process.getErrorStream(), new File(getWorkDir(), "stderr.txt")).start();
         
         process.waitFor();  // ｺﾏﾝﾄﾞ終了まで待機
     }
@@ -66,8 +66,8 @@ public class Command
     
     class StreamThread extends Thread {
         private static final int BUF_SIZE = 4096;
-        private InputStream in;
-        private BufferedOutputStream out;
+        private final InputStream in;
+        private final BufferedOutputStream out;
 
         public StreamThread(InputStream in, String outputFilename) throws IOException {
             this.in  = in;
@@ -82,7 +82,7 @@ public class Command
         @Override
         public void run(){
             byte[] buf = new byte[BUF_SIZE];
-            int size = -1;
+            int size;
             try{
                 while((size = in.read(buf, 0, BUF_SIZE)) != -1){
                     out.write(buf, 0, size);

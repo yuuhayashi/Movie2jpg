@@ -1,4 +1,4 @@
-package movie2jpg;
+package osm.surveyor.movie2jpg;
 
 
 import java.io.File;

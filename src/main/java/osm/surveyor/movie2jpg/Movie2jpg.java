@@ -1,4 +1,4 @@
-package movie2jpg;
+package osm.surveyor.movie2jpg;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,6 +37,8 @@ public class Movie2jpg {
         workDir = new File(".");
         movieDir = new File(workDir, "Movie");      // './Movie'ディレクトリ
         imgDir = new File(workDir, "img");          // './img'ディレクトリ
+        System.out.println(movieDir.getAbsolutePath());
+        System.out.println(imgDir.getAbsolutePath());
     }
     
     /**
