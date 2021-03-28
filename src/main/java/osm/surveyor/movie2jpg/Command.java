@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import Command.StreamThread;
-
 public class Command
 {
     public static boolean debug = false;
