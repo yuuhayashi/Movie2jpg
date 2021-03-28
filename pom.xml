@@ -17,14 +17,10 @@
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.javadoc.skip>true</maven.javadoc.skip>
 
     <!-- skip upload to maven Central -->
     <gpg.skip>true</gpg.skip>
-    
-    <maven.javadoc.skip>true</maven.javadoc.skip>
-
-    <!-- skip upload to archiva on the suveyor, becos upload too large size -->
-    <maven.deploy.skip>true</maven.deploy.skip>
 
     <!-- dependency versions -->
     <junit.version>4.12</junit.version>
