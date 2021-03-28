@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------
 # docker build -t haya4/movie2jpg .
 # mkdir mapi
-# docker run -it -v $(pwd)/mapi:/mnt/mapi haya4/movie2jpg bash
+# docker run -it -v $(pwd):/mnt/mapi haya4/movie2jpg bash
 #-----
 FROM debian
 

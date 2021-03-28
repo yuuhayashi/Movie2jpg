@@ -26,5 +26,3 @@ Copyright (c) 2014 Yuu Hayashi
 This software is released under the MIT License, see LICENSE.txt.
 
 -------------------------------------------------------------------
-About 'commons-imaging-1.0-20170205.201009-115.jar'
-'commons-imaging-1.0-20170205.201009-115.jar' is the work that is distributed in the Apache License 2.0
