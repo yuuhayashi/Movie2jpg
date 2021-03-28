@@ -5,7 +5,7 @@
 
 ## 概要
 
-### 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する
+** 動画ファイルから一定間隔の静止画(JPEG)ファイルを生成する **
 
 ![Movie to JPEG](wiki/img/movie2jpeg.png)
 
@@ -14,15 +14,27 @@
  * ソースとなる動画ファイルはタイムラプス撮影されたものに限定されるわけではありませんが、他の撮影方法で撮影された動画の動作確認は行っていませんので動くかどうかはわかりません。
 
 
+## Repository
+
+- github
+ - `https://github.com/yuuhayashi/Movie2jpg.git`
+
+- maven repository (Archiva) 
+ - `http://surveyor.mydns.jp/archiva/#artifact~haya4/osm.surveyor.movie2jpg/Movie2jpg`
+ - `http://surveyor.mydns.jp/archiva/repository/haya4/osm/surveyor/movie2jpg/Movie2jpg/2.0.0/Movie2jpg-2.0.0-jar-with-dependencies.jar`
+
+- DockerHub
+ - 
+ 
 ## Install / インストール
 
-### Dockerのインストールとビルド
+** Dockerのインストールとビルド **
 
   **Docker 'haya4/movie2jpg'**
 
 初回に限りDockerのインストールとビルドが必要です。
 
-こちら → [DockerBuild](DOCKERBUILD.md) を参考にしてインストールとビルドを行ってください。
+こちら → [DockerBuild](wiki/DOCKERBUILD.md) を参考にしてインストールとビルドを行ってください。
 
 
 ## Quick start / 実行
@@ -38,32 +50,43 @@
 　　　　　　┗━ YYYY.mov
 ```
 
-例: フォルダ `~/Movie` に 
- * **動画(MP4)**ファイルを配置する。
+例: フォルダ `~/Movie` に**動画(MP4/MOV)**ファイルを配置します。
+
+ - `*.mp4`または`*.mov`形式の動画ファイルに対応しています
+
+ - 複数の動画ファイルをセットできます。
 
 
 ### 静止画の切り出し処理を実行 - Docker run
 
-**実行**:   
+- (1) 動画ファイルをセットしたフォルダに移動
 
   ```
   cd ~/Movie
+  ```
+
+- (2) 下記コマンドを実行
+
+  ```
   docker run -it -v $(pwd):/mnt/mapi:rw movie2jpg java -cp .:/root/Movie2jpg.jar osm.surveyor.movie2jpg.Movie2jpg
   ```
 
-  実行すると、「Movie2jpg」が起動され、`~/Movie`フォルダ内の「動画(MP4,mov)」ファイルごとに
+実行すると、「Movie2jpg」が起動され、`~/Movie`フォルダ内の「動画(MP4,mov)」ファイルごとに
 
-  `ffmpeg -ss 0 -i ./(movie-file) -r (fps) ./img/(movie-file)/%05d.jpg`
+  ```
+  ffmpeg -ss 0 -i ./(movie-file) -r (fps) ./img/(movie-file)/%05d.jpg
+  ```
 
-  がDockerコンテナ内部で実行されます。
+がDockerコンテナ内部で実行されます。
 
-  完了すると、`~/Movie/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
+完了すると、`~/Movie/img`フォルダの下にMP4ファイル名と同じ名前のフォルダが作成され、その中に切り出されたJPEG画像が生成されます。
 
 ```
 ~/
 ┗━ ~/Movie
 　　　┣━ XXXX.mov
 　　　┣━ YYYY.mp4
+　　　┃
 　　　┗━ ~/Movie/img
 　　　　　　┣━ XXXX
 　　　　　　┃　　┣━ 00001.jpg
@@ -76,7 +99,6 @@
 　　　　　　　　　┣━     :
 　　　　　　　　　┗━ 02408.jpg
 ```
-
 
 
 ## Depends / 動作依存
