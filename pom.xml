@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>osm.surveyor.movie2jpg</groupId>
   <artifactId>Movie2jpg</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <scm>
     <connection>scm:git:https://github.com/yuuhayashi/Movie2jpg.git</connection>
     <url>https://github.com/yuuhayashi/Movie2jpg</url>
     <developerConnection>scm:git:https://github.com/yuuhayashi/Movie2jpg.git</developerConnection>
-    <tag>v2.0.1</tag>
+    <tag>v2.0.0</tag>
   </scm>
 
   <properties>
