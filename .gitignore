@@ -1,6 +1,9 @@
 *.class
 *.zip
+stdout.txt
+stderr.txt
 bin/**
+target/
 classes/
 sample/
 database/
