@@ -2,6 +2,7 @@
 *.zip
 stdout.txt
 stderr.txt
+*.jar
 bin/**
 target/
 classes/
