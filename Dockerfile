@@ -1,17 +1,15 @@
 #--------------------------------------------------------------------------
-# docker build -t haya4/movie2jpg:2.0.0 .
+# docker build -t haya4/movie2jpg:2.0.1 .
 # docker login
 # 	Username: haya4
 # 	Password: xxxxxx
 #   Login Succeeded
-# docker tag c3e80b5d2119 haya4/movie2jpg:2.0.0
-# docker push haya4/movie2jpg:2.0.0
+# docker tag c3e80b5d2119 haya4/movie2jpg:2.0.1
+# docker push haya4/movie2jpg:2.0.1
 # 
 # mkdir target
-# docker run -it -v $(pwd):/mnt/mapi haya4/movie2jpg:2.0.0 bash
-# 	java -cp .:/root/Movie2jpg-2.0.0-jar-with-dependencies.jar osm.surveyor.movie2jpg.Movie2jpg /mnt/mapi
+# docker run -rm -v $(pwd):/mnt/mapi haya4/movie2jpg:2.0.1
 #
-# docker run -it -v $(pwd):/mnt/mapi:rw haya4/movie2jpg:2.0.0 java -cp .:/root/Movie2jpg-2.0.0-jar-with-dependencies.jar osm.surveyor.movie2jpg.Movie2jpg /mnt/mapi
 #-----
 FROM ubuntu:18.04
 
@@ -21,8 +19,9 @@ RUN apt-get -yqq install ffmpeg openjdk-8-jdk unzip
 
 RUN mkdir /mnt/mapi
 
-COPY ./target/Movie2jpg-2.0.0-jar-with-dependencies.jar /root
+ADD https://github.com/yuuhayashi/Movie2jpg/releases/download/v2.0.1/Movie2jpg-jar-with-dependencies.jar /movie2jpg-jar-with-dependencies.jar
 
 VOLUME /mnt/mapi
 
 WORKDIR /mnt/mapi
+ENTRYPOINT ["java", "-jar", "/movie2jpg-jar-with-dependencies.jar", "/mnt/mapi"]
