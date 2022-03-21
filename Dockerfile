@@ -9,6 +9,7 @@
 # docker push haya4/movie2jpg:2.0.2
 # 
 # [START]
+# docker pull haya4/movie2jpg:2.0.2
 # docker run --rm -v $(pwd):/mnt/mapi haya4/movie2jpg:2.0.2
 #
 #-----
